@@ -4,36 +4,37 @@ import Home from "@views/Home";
 import { NavigationContainer } from "@react-navigation/native";
 import usePrepare from "@hooks/usePrepare";
 import { StyleSheet, View } from "react-native";
-import { Navbar } from "@components/organism";
+import { MenuModal, Navbar } from "@components/organism";
 import { colors } from "@themes/colors";
 
 const AppNav = () => {
-	const { fontsLoaded } = usePrepare();
+  const { fontsLoaded } = usePrepare();
 
-	if (!fontsLoaded) return null;
+  if (!fontsLoaded) return null;
 
-	return (
-		<View style={styles.container}>
-			<Navbar />
+  return (
+    <View style={styles.container}>
+      <MenuModal />
+      <Navbar />
 
-			<NavigationContainer>
-				<AppStack.Navigator initialRouteName="Home">
-					<AppStack.Screen
-						name="Home"
-						component={Home}
-						options={{ headerShown: false }}
-					/>
-				</AppStack.Navigator>
-			</NavigationContainer>
-		</View>
-	);
+      <NavigationContainer>
+        <AppStack.Navigator initialRouteName="Home">
+          <AppStack.Screen
+            name="Home"
+            component={Home}
+            options={{ headerShown: false }}
+          />
+        </AppStack.Navigator>
+      </NavigationContainer>
+    </View>
+  );
 };
 
 export default AppNav;
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: colors["Neutral-50"],
-	},
+  container: {
+    flex: 1,
+    backgroundColor: colors["Neutral-50"],
+  },
 });

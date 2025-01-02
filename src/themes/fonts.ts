@@ -1,20 +1,87 @@
 import { StyleSheet } from "react-native";
 
 export const fonts = {
-	Helvetica: "Helvetica",
+  Helvetica: "Helvetica",
+  Playfair: "Playfair",
 };
 
 export const fontStyle = StyleSheet.create({
-	H1: {
-		fontFamily: fonts.Helvetica,
-		fontSize: 18,
-		fontWeight: 700,
-		lineHeight: 30,
-	},
-	H5: {
-		fontFamily: fonts.Helvetica,
-		fontSize: 13,
-		fontWeight: 600,
-		lineHeight: 16,
-	},
+  H1: {
+    fontFamily: fonts["Playfair"],
+    fontSize: 86,
+    fontWeight: "black",
+    lineHeight: 84,
+  },
+  H2: {
+    fontFamily: fonts["Playfair"],
+    fontSize: 40,
+    fontWeight: "black",
+    lineHeight: 40,
+  },
+  H3: {
+    fontFamily: fonts["Playfair"],
+    fontSize: 32,
+    fontWeight: "black",
+    lineHeight: 32,
+  },
+  Subtitle: {
+    fontFamily: fonts["Helvetica"],
+    fontSize: 14,
+    fontWeight: "medium",
+    lineHeight: 28,
+  },
+  SubtitleLight: {
+    fontFamily: fonts["Helvetica"],
+    fontSize: 20,
+    fontWeight: "light",
+    lineHeight: 28,
+  },
+  Button: {
+    fontFamily: fonts["Helvetica"],
+    fontSize: 14,
+    fontWeight: "medium",
+    lineHeight: 16,
+  },
+  BodyXL: {
+    fontFamily: fonts["Helvetica"],
+    fontSize: 40,
+    fontWeight: "normal",
+    lineHeight: 40,
+  },
+  BodyL: {
+    fontFamily: fonts["Helvetica"],
+    fontSize: 24,
+    fontWeight: "bold",
+    lineHeight: 34,
+  },
+  BodyMBold: {
+    fontFamily: fonts["Helvetica"],
+    fontSize: 18,
+    fontWeight: "bold",
+    lineHeight: 21,
+  },
+  BodyMLight: {
+    fontFamily: fonts["Helvetica"],
+    fontSize: 18,
+    fontWeight: "light",
+    lineHeight: 22,
+  },
+  BodySBold: {
+    fontFamily: fonts["Helvetica"],
+    fontSize: 16,
+    fontWeight: "bold",
+    lineHeight: 20,
+  },
+  BodySReg: {
+    fontFamily: fonts["Helvetica"],
+    fontSize: 16,
+    fontWeight: "normal",
+    lineHeight: 20,
+  },
+  BodyXS: {
+    fontFamily: fonts["Helvetica"],
+    fontSize: 14,
+    fontWeight: "normal",
+    lineHeight: 20,
+  },
 });

@@ -1,64 +1,56 @@
-import { StyleSheet, View } from "react-native";
-import React, { useEffect } from "react";
+import { StyleSheet } from "react-native";
+import React from "react";
 import { colors } from "@themes/colors";
 import { LogoButton, NavbarList } from "@components/molecule";
-import { CustomButton } from "@components/atom";
-import Animated, {
-	interpolate,
-	useAnimatedStyle,
-	useSharedValue,
-	withTiming,
-} from "react-native-reanimated";
+import { CustomButton, HamburgerButton } from "@components/atom";
+import Animated from "react-native-reanimated";
+import useNavbar from "@hooks/useNavbar";
+import useMedia from "@hooks/useMedia";
 
 const Navbar = () => {
-	const navbarAnim = useSharedValue(0);
+  const { navbarAnimatedStyle } = useNavbar();
+  const { isMobile } = useMedia();
 
-	const navbarAnimatedStyle = useAnimatedStyle(() => {
-		const translateY = interpolate(navbarAnim.value, [0, 1], [-64, 0]);
-		const opacity = interpolate(navbarAnim.value, [0, 1], [0, 1]);
+  return (
+    <Animated.View
+      style={[
+        styles.container,
+        isMobile ? styles.containerMobile : styles.containerWeb,
+        navbarAnimatedStyle,
+      ]}
+    >
+      <LogoButton />
 
-		return {
-			transform: [{ translateY }],
-			opacity,
-		};
-	});
+      {!isMobile && <NavbarList />}
 
-	useEffect(() => {
-		navbarAnim.value = withTiming(1, { duration: 1500 });
-	}, []);
-
-	return (
-		<Animated.View style={[styles.container, navbarAnimatedStyle]}>
-			<LogoButton />
-
-			<NavbarList />
-
-			<CustomButton
-				type="empty"
-				label="BOOKING NOW"
-				icon={require("@assets/images/arrow.png")}
-			/>
-		</Animated.View>
-	);
+      {isMobile ? <HamburgerButton /> : <CustomButton label="BOOKING NOW" />}
+    </Animated.View>
+  );
 };
 
 export default Navbar;
 
 const styles = StyleSheet.create({
-	container: {
-		height: 64,
-		shadowOffset: {
-			width: 0,
-			height: 0,
-		},
-		shadowOpacity: 0.15,
-		shadowColor: colors.Black,
-		shadowRadius: 12,
-		flexDirection: "row",
-		alignItems: "center",
-		justifyContent: "space-between",
-		paddingHorizontal: 80,
-		zIndex: 999,
-		backgroundColor: colors["Neutral-50"],
-	},
+  container: {
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 0.15,
+    shadowColor: colors.Black,
+    shadowRadius: 12,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    zIndex: 999,
+    backgroundColor: colors["Neutral-50"],
+  },
+  containerWeb: {
+    height: 64,
+    paddingHorizontal: 80,
+  },
+  containerMobile: {
+    height: 58,
+    paddingHorizontal: 14,
+  },
 });
