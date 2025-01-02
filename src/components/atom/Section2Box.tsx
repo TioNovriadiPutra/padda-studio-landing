@@ -37,25 +37,13 @@ const Section2Box = ({ itemData, index, trigger, isMobile }: Props) => {
   });
 
   useEffect(() => {
-    if (isMobile) {
-      if (
-        scrollPos >= navbarData[0].toMobile! + 120 &&
-        sectionAnim.value === 0
-      ) {
-        sectionAnim.value = withDelay(
-          500 * index,
-          withTiming(1, { duration: 1000 })
-        );
-      }
-    } else {
-      if (trigger && sectionAnim.value === 0) {
-        sectionAnim.value = withDelay(
-          500 * index,
-          withTiming(1, { duration: 1000 })
-        );
-      }
+    if (trigger && sectionAnim.value === 0) {
+      sectionAnim.value = withDelay(
+        500 * index,
+        withTiming(1, { duration: 1000 })
+      );
     }
-  }, [trigger, scrollPos]);
+  }, [trigger]);
 
   return (
     <Animated.View
