@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     paddingVertical: 84,
   },
   containerMobile: {
-    height: 1628,
+    minHeight: 1628,
     paddingHorizontal: 14,
     paddingVertical: 64,
   },
