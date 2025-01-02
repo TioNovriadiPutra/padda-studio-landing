@@ -6,6 +6,7 @@ import usePrepare from "@hooks/usePrepare";
 import { StyleSheet, View } from "react-native";
 import { MenuModal, Navbar } from "@components/organism";
 import { colors } from "@themes/colors";
+import { linking } from "@utils/config/linking";
 
 const AppNav = () => {
   const { fontsLoaded, scrollRef } = usePrepare();
@@ -17,9 +18,12 @@ const AppNav = () => {
       <MenuModal scrollRef={scrollRef} />
       <Navbar scrollRef={scrollRef} />
 
-      <NavigationContainer>
+      <NavigationContainer linking={linking}>
         <AppStack.Navigator initialRouteName="Home">
-          <AppStack.Screen name="Home" options={{ headerShown: false }}>
+          <AppStack.Screen
+            name="Home"
+            options={{ headerShown: false, title: "PADDA Studio" }}
+          >
             {() => <Home scrollRef={scrollRef} />}
           </AppStack.Screen>
         </AppStack.Navigator>
