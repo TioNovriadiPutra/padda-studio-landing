@@ -1,17 +1,22 @@
 import {
   Modal,
   Pressable,
+  ScrollView,
   StyleSheet,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
-import React from "react";
+import React, { MutableRefObject } from "react";
 import { colors } from "@themes/colors";
 import { icons } from "@themes/sizing";
-import NavbarMenu from "@components/molecule/NavbarMenu";
 import useNavbarMenu from "@hooks/useNavbarMenu";
+import { NavbarMenu } from "@components/molecule";
 
-const MenuModal = () => {
+type Props = {
+  scrollRef: MutableRefObject<ScrollView | null>;
+};
+
+const MenuModal = ({ scrollRef }: Props) => {
   const { showMenu, menuAnimatedStyle, onHandleMenuLayout, onHandleClose } =
     useNavbarMenu();
 
@@ -26,6 +31,8 @@ const MenuModal = () => {
           <NavbarMenu
             animatedStyle={menuAnimatedStyle}
             onHandleLayout={onHandleMenuLayout}
+            scrollRef={scrollRef}
+            onHandleClose={onHandleClose}
           />
 
           <TouchableWithoutFeedback onPress={onHandleClose}>

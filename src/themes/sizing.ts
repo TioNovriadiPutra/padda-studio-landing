@@ -16,8 +16,16 @@ export const icons = StyleSheet.create({
     width: 32,
     height: 32,
   },
+  IconXL: {
+    width: 38,
+    height: 38,
+  },
   Star: {
     width: 148,
     height: 148,
+  },
+  Image: {
+    width: "100%",
+    height: "100%",
   },
 });

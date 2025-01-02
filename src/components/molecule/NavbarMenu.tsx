@@ -1,5 +1,5 @@
-import { LayoutChangeEvent, StyleSheet, View } from "react-native";
-import React from "react";
+import { LayoutChangeEvent, ScrollView, StyleSheet, View } from "react-native";
+import React, { MutableRefObject } from "react";
 import { navbarData } from "@utils/constant/page";
 import {
   CustomButton,
@@ -12,16 +12,28 @@ import Animated from "react-native-reanimated";
 type Props = {
   animatedStyle: { height: number };
   onHandleLayout: (e: LayoutChangeEvent) => void;
+  scrollRef: MutableRefObject<ScrollView | null>;
+  onHandleClose: () => void;
 };
 
-const NavbarMenu = ({ animatedStyle, onHandleLayout }: Props) => {
+const NavbarMenu = ({
+  animatedStyle,
+  onHandleLayout,
+  scrollRef,
+  onHandleClose,
+}: Props) => {
   return (
     <Animated.View style={[styles.container, animatedStyle]}>
       <View style={styles.content} onLayout={onHandleLayout}>
         <View style={styles.function}>
           <View style={styles.list}>
             {navbarData.map((item, index) => (
-              <NavbarMenuItem key={index.toString()} title={item.title} />
+              <NavbarMenuItem
+                key={index.toString()}
+                itemData={item}
+                scrollRef={scrollRef}
+                onHandleClose={onHandleClose}
+              />
             ))}
           </View>
 

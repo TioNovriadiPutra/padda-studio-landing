@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native";
-import React from "react";
+import { ScrollView, StyleSheet } from "react-native";
+import React, { MutableRefObject } from "react";
 import { colors } from "@themes/colors";
 import { LogoButton, NavbarList } from "@components/molecule";
 import { CustomButton, HamburgerButton } from "@components/atom";
@@ -7,7 +7,11 @@ import Animated from "react-native-reanimated";
 import useNavbar from "@hooks/useNavbar";
 import useMedia from "@hooks/useMedia";
 
-const Navbar = () => {
+type Props = {
+  scrollRef: MutableRefObject<ScrollView | null>;
+};
+
+const Navbar = ({ scrollRef }: Props) => {
   const { navbarAnimatedStyle } = useNavbar();
   const { isMobile } = useMedia();
 
@@ -21,7 +25,7 @@ const Navbar = () => {
     >
       <LogoButton />
 
-      {!isMobile && <NavbarList />}
+      {!isMobile && <NavbarList scrollRef={scrollRef} />}
 
       {isMobile ? <HamburgerButton /> : <CustomButton label="BOOKING NOW" />}
     </Animated.View>

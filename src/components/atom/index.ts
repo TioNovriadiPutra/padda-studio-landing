@@ -5,3 +5,5 @@ export { default as AppButton } from "./AppButton";
 export { default as HamburgerButton } from "./HamburgerButton";
 export { default as NavbarMenuItem } from "./NavbarMenuItem";
 export { default as NavbarMenuFooter } from "./NavbarMenuFooter";
+export { default as Section2Desc } from "./Section2Desc";
+export { default as Section2Box } from "./Section2Box";

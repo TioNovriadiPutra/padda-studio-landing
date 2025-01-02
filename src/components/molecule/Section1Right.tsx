@@ -2,6 +2,7 @@ import { StyleSheet, View } from "react-native";
 import React from "react";
 import Animated from "react-native-reanimated";
 import useSection1Right from "@hooks/useSection1Right";
+import { icons } from "@themes/sizing";
 
 type Props = {
   isMobile: boolean;
@@ -33,13 +34,12 @@ const Section1Right = ({ isMobile }: Props) => {
         />
       )}
 
-      <Animated.Image
-        source={require("@assets/images/section1.png")}
-        style={[
-          isMobile ? styles.imageMobile : styles.imageWeb,
-          sectionAnimatedStyle,
-        ]}
-      />
+      <View style={isMobile ? styles.imageMobile : styles.imageWeb}>
+        <Animated.Image
+          source={require("@assets/images/section1.png")}
+          style={[icons["Image"], sectionAnimatedStyle]}
+        />
+      </View>
 
       <Animated.Image
         source={require("@assets/images/star.png")}
@@ -84,7 +84,8 @@ const styles = StyleSheet.create({
   },
   imageMobile: {
     width: "100%",
-    height: 371.64,
+    height: undefined,
+    aspectRatio: 469 / 525,
   },
   star: {
     position: "absolute",

@@ -8,22 +8,20 @@ import { MenuModal, Navbar } from "@components/organism";
 import { colors } from "@themes/colors";
 
 const AppNav = () => {
-  const { fontsLoaded } = usePrepare();
+  const { fontsLoaded, scrollRef } = usePrepare();
 
   if (!fontsLoaded) return null;
 
   return (
     <View style={styles.container}>
-      <MenuModal />
-      <Navbar />
+      <MenuModal scrollRef={scrollRef} />
+      <Navbar scrollRef={scrollRef} />
 
       <NavigationContainer>
         <AppStack.Navigator initialRouteName="Home">
-          <AppStack.Screen
-            name="Home"
-            component={Home}
-            options={{ headerShown: false }}
-          />
+          <AppStack.Screen name="Home" options={{ headerShown: false }}>
+            {() => <Home scrollRef={scrollRef} />}
+          </AppStack.Screen>
         </AppStack.Navigator>
       </NavigationContainer>
     </View>
