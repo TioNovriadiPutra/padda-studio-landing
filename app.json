@@ -28,7 +28,7 @@
         "description": "A brief description of your website.",
         "themeColor": "#ffffff",
         "og:title": "PADDA Studio",
-        "og:image": "https://paddastudio.com/images/waLauncher.png"
+        "og:image": "https://www.paddastudio.com/images/waLauncher.png"
       }
     },
     "plugins": ["expo-font"]
