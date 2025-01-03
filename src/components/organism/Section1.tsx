@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   containerMobile: {
     gap: 69.02,
-    height: 1013.5,
+    height: 1069.45,
     paddingHorizontal: 14,
     paddingVertical: 40,
   },

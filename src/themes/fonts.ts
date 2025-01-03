@@ -36,6 +36,12 @@ export const fontStyle = StyleSheet.create({
     fontWeight: "light",
     lineHeight: 28,
   },
+  SubtitleReg: {
+    fontFamily: fonts["Helvetica"],
+    fontSize: 32,
+    fontWeight: "normal",
+    lineHeight: 31.36,
+  },
   Button: {
     fontFamily: fonts["Helvetica"],
     fontSize: 14,

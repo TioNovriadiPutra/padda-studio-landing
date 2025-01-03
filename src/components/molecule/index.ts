@@ -5,3 +5,4 @@ export { default as Section1Right } from "./Section1Right";
 export { default as NavbarMenu } from "./NavbarMenu";
 export { default as Section2Header } from "./Section2Header";
 export { default as Section2BoxList } from "./Section2BoxList";
+export { default as Section5List } from "./Section5List";

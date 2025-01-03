@@ -7,3 +7,4 @@ export { default as NavbarMenuItem } from "./NavbarMenuItem";
 export { default as NavbarMenuFooter } from "./NavbarMenuFooter";
 export { default as Section2Desc } from "./Section2Desc";
 export { default as Section2Box } from "./Section2Box";
+export { default as Section5Box } from "./Section5Box";

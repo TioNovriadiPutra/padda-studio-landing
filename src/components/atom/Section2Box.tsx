@@ -4,16 +4,14 @@ import { Card } from "@interfaces/page";
 import { colors } from "@themes/colors";
 import { icons } from "@themes/sizing";
 import { fontStyle } from "@themes/fonts";
-import Animated, {
+import {
   interpolate,
   useAnimatedStyle,
   useSharedValue,
   withDelay,
   withTiming,
 } from "react-native-reanimated";
-import { useRecoilValue } from "recoil";
-import { scrollPosState } from "@stores/page";
-import { navbarData } from "@utils/constant/page";
+import { AnimatedPressable } from "@utils/constant/animated";
 
 type Props = {
   itemData: Card;
@@ -23,9 +21,8 @@ type Props = {
 };
 
 const Section2Box = ({ itemData, index, trigger, isMobile }: Props) => {
-  const scrollPos = useRecoilValue(scrollPosState);
-
   const sectionAnim = useSharedValue(0);
+  const boxAnim = useSharedValue(0);
 
   const sectionAnimatedStyle = useAnimatedStyle(() => {
     const translateY = interpolate(sectionAnim.value, [0, 1], [-50, 0]);
@@ -35,6 +32,22 @@ const Section2Box = ({ itemData, index, trigger, isMobile }: Props) => {
       opacity: sectionAnim.value,
     };
   });
+
+  const boxAnimatedStyle = useAnimatedStyle(() => {
+    const scale = interpolate(boxAnim.value, [0, 1], [1, 1.05]);
+
+    return {
+      transform: [{ scale }],
+    };
+  });
+
+  const onHandleHoverIn = () => {
+    boxAnim.value = withTiming(1, { duration: 300 });
+  };
+
+  const onHandleHoverOut = () => {
+    boxAnim.value = withTiming(0, { duration: 300 });
+  };
 
   useEffect(() => {
     if (trigger && sectionAnim.value === 0) {
@@ -46,12 +59,15 @@ const Section2Box = ({ itemData, index, trigger, isMobile }: Props) => {
   }, [trigger]);
 
   return (
-    <Animated.View
+    <AnimatedPressable
       style={[
         styles.container,
         !isMobile && styles.containerWeb,
         sectionAnimatedStyle,
+        boxAnimatedStyle,
       ]}
+      onHoverIn={onHandleHoverIn}
+      onHoverOut={onHandleHoverOut}
     >
       {!isMobile && (
         <View style={styles.box}>
@@ -76,7 +92,7 @@ const Section2Box = ({ itemData, index, trigger, isMobile }: Props) => {
       >
         {itemData.desc}
       </Text>
-    </Animated.View>
+    </AnimatedPressable>
   );
 };
 
@@ -87,6 +103,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors["Neutral-900"],
     borderRadius: 24,
     padding: 32,
+    cursor: "auto",
   },
   containerWeb: {
     flex: 1,

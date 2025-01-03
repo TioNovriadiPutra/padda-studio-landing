@@ -23,6 +23,11 @@ const AppButton = ({ type, label, onClick }: Props) => {
               : type === "grey"
               ? colors["Neutral-400"]
               : "none",
+          borderWidth: type === "emptyWhite" || type === "emptyBlack" ? 1 : 0,
+          borderColor:
+            type === "emptyWhite"
+              ? colors["Neutral-50"]
+              : colors["Neutral-950"],
         },
       ]}
       onPress={onClick}

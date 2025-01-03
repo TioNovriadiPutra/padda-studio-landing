@@ -1,14 +1,16 @@
-import { StyleSheet, View } from "react-native";
+import { LayoutChangeEvent, StyleSheet, View } from "react-native";
 import React from "react";
 import { colors } from "@themes/colors";
 import { Section2BoxList, Section2Header } from "@components/molecule";
 
 type Props = {
   trigger: boolean;
+  trigger2: boolean;
   isMobile: boolean;
+  onLayout: (e: LayoutChangeEvent) => void;
 };
 
-const Section2 = ({ trigger, isMobile }: Props) => {
+const Section2 = ({ trigger, trigger2, isMobile, onLayout }: Props) => {
   return (
     <View
       style={[
@@ -16,9 +18,16 @@ const Section2 = ({ trigger, isMobile }: Props) => {
         isMobile ? styles.containerMobile : styles.containerWeb,
       ]}
     >
-      <Section2Header trigger={trigger} isMobile={isMobile} />
+      <Section2Header
+        trigger={trigger}
+        isMobile={isMobile}
+        onLayout={onLayout}
+      />
 
-      <Section2BoxList trigger={trigger} isMobile={isMobile} />
+      <Section2BoxList
+        trigger={isMobile ? trigger2 : trigger}
+        isMobile={isMobile}
+      />
     </View>
   );
 };

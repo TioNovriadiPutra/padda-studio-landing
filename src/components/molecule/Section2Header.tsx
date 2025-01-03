@@ -1,4 +1,4 @@
-import { Image, StyleSheet, View } from "react-native";
+import { Image, LayoutChangeEvent, StyleSheet, View } from "react-native";
 import React, { useEffect } from "react";
 import { colors } from "@themes/colors";
 import { icons } from "@themes/sizing";
@@ -13,9 +13,10 @@ import Animated, {
 type Props = {
   trigger: boolean;
   isMobile: boolean;
+  onLayout: (e: LayoutChangeEvent) => void;
 };
 
-const Section2Header = ({ trigger, isMobile }: Props) => {
+const Section2Header = ({ trigger, isMobile, onLayout }: Props) => {
   const sectionAnim = useSharedValue(0);
 
   const sectionAnimatedStyle = useAnimatedStyle(() => {
@@ -45,6 +46,7 @@ const Section2Header = ({ trigger, isMobile }: Props) => {
           isMobile ? styles.imageMobile : styles.imageWeb,
           sectionAnimatedStyle,
         ]}
+        onLayout={onLayout}
       >
         <Image
           source={require("@assets/images/section2.png")}

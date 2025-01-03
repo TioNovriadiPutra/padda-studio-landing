@@ -4,10 +4,12 @@ export const navbarData: Navbar[] = [
   {
     title: "About Us",
     toWeb: 876,
-    toMobile: 1013.5,
+    toMobile: 1069.45,
   },
   {
     title: "Studios",
+    toWeb: 3078,
+    toMobile: 3187.45,
   },
   {
     title: "T & C",
@@ -33,4 +35,12 @@ export const cardData: Card[] = [
     title: "Cozy Studio Space",
     desc: "Our studio offers a warm and cozy atmosphere, making every photoshoot a comfortable and enjoyable experience.",
   },
+];
+
+export const studioButtonData: string[] = [
+  "ALEXANDRIA",
+  "CYCLORAMA",
+  "HELENA",
+  "TEMATIK JAPAN",
+  "MAKEUP ROOM",
 ];
