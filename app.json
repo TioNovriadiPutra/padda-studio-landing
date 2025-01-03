@@ -5,7 +5,6 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/images/logo.png",
-    "og:image": "https://www.paddastudio.com/images/waLauncher.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
@@ -26,10 +25,10 @@
       "favicon": "./src/assets/images/logo.png",
       "meta": {
         "name": "PADDA Studio",
-        "description": "A brief description of your website.",
-        "themeColor": "#ffffff",
-        "og:title": "PADDA Studio",
-        "og:image": "https://www.paddastudio.com/images/waLauncher.png"
+        "description": "My website description",
+        "ogImage": "https://paddastudio.com/images/waLauncher.png",
+        "ogTitle": "PADDA Studio",
+        "ogUrl": "https://paddastudio.com"
       }
     },
     "plugins": ["expo-font"]
