@@ -27,7 +27,8 @@
         "name": "PADDA Studio",
         "description": "A brief description of your website.",
         "themeColor": "#ffffff",
-        "og:image": "./src/assets/images/waLauncher.png"
+        "og:title": "PADDA Studio",
+        "og:image": "https://paddastudio.com/images/waLauncher.png"
       }
     },
     "plugins": ["expo-font"]
