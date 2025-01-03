@@ -8,6 +8,7 @@ import {
 } from "@components/atom";
 import { colors } from "@themes/colors";
 import Animated from "react-native-reanimated";
+import { onHandleBook } from "@utils/helper/helperFunc";
 
 type Props = {
   animatedStyle: { height: number };
@@ -37,7 +38,7 @@ const NavbarMenu = ({
             ))}
           </View>
 
-          <CustomButton label="BOOKING NOW" />
+          <CustomButton label="BOOKING NOW" onClick={onHandleBook} />
         </View>
 
         <NavbarMenuFooter />

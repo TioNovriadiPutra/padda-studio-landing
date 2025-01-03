@@ -6,6 +6,7 @@ import { CustomButton, HamburgerButton } from "@components/atom";
 import Animated from "react-native-reanimated";
 import useNavbar from "@hooks/useNavbar";
 import useMedia from "@hooks/useMedia";
+import { onHandleBook } from "@utils/helper/helperFunc";
 
 type Props = {
   scrollRef: MutableRefObject<ScrollView | null>;
@@ -27,7 +28,11 @@ const Navbar = ({ scrollRef }: Props) => {
 
       {!isMobile && <NavbarList scrollRef={scrollRef} />}
 
-      {isMobile ? <HamburgerButton /> : <CustomButton label="BOOKING NOW" />}
+      {isMobile ? (
+        <HamburgerButton />
+      ) : (
+        <CustomButton label="BOOKING NOW" onClick={onHandleBook} />
+      )}
     </Animated.View>
   );
 };

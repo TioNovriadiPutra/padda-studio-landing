@@ -9,6 +9,7 @@ import Animated, {
 } from "react-native-reanimated";
 import CustomButton from "./CustomButton";
 import AppButton from "./AppButton";
+import { onHandleBook } from "@utils/helper/helperFunc";
 
 type Props = {
   isMobile: boolean;
@@ -38,7 +39,7 @@ const Section1Action = ({ isMobile }: Props) => {
         buttonAnimatedStyle,
       ]}
     >
-      <CustomButton label="BOOKING NOW" />
+      <CustomButton label="BOOKING NOW" onClick={onHandleBook} />
 
       <AppButton type="black" label="VIEW STUDIO" />
     </Animated.View>

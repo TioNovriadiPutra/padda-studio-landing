@@ -1,6 +1,7 @@
 import { Image, Pressable, StyleSheet, View } from "react-native";
 import React from "react";
 import { icons } from "@themes/sizing";
+import { onHandleSocial } from "@utils/helper/helperFunc";
 
 const NavbarMenuFooter = () => {
   return (
@@ -19,7 +20,9 @@ const NavbarMenuFooter = () => {
         />
       </Pressable>
 
-      <Pressable>
+      <Pressable
+        onPress={() => onHandleSocial("https://www.instagram.com/paddastudio_")}
+      >
         <Image
           source={require("@assets/images/instagram.png")}
           style={icons["IconMD"]}
