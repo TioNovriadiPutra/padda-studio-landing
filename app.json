@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/images/logo.png",
+    "og:image": "https://www.paddastudio.com/images/waLauncher.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
