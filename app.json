@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "padda-studio-landing",
-    "slug": "padda-studio-landing",
+    "name": "PADDA Studio",
+    "slug": "padda-studio",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./src/assets/images/logo.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
