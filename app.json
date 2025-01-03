@@ -1,29 +1,35 @@
 {
-	"expo": {
-		"name": "padda-studio-landing",
-		"slug": "padda-studio-landing",
-		"version": "1.0.0",
-		"orientation": "portrait",
-		"icon": "./assets/icon.png",
-		"userInterfaceStyle": "light",
-		"newArchEnabled": true,
-		"splash": {
-			"image": "./assets/splash-icon.png",
-			"resizeMode": "contain",
-			"backgroundColor": "#ffffff"
-		},
-		"ios": {
-			"supportsTablet": true
-		},
-		"android": {
-			"adaptiveIcon": {
-				"foregroundImage": "./assets/adaptive-icon.png",
-				"backgroundColor": "#ffffff"
-			}
-		},
-		"web": {
-			"favicon": "./src/assets/images/logo.png"
-		},
-		"plugins": ["expo-font"]
-	}
+  "expo": {
+    "name": "padda-studio-landing",
+    "slug": "padda-studio-landing",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./src/assets/images/logo.png",
+      "meta": {
+        "name": "PADDA Studio",
+        "description": "A brief description of your website.",
+        "themeColor": "#ffffff",
+        "og:image": "./src/assets/images/waLauncher.png"
+      }
+    },
+    "plugins": ["expo-font"]
+  }
 }
