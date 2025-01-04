@@ -1,6 +1,7 @@
 const config = {
   screens: {
     Home: "/",
+    TC: "/tc",
   },
 };
 

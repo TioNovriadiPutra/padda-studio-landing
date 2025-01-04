@@ -4,8 +4,8 @@ import { ImageSourcePropType } from "react-native";
 export const navbarData: Navbar[] = [
   {
     title: "About Us",
-    toWeb: 876,
-    toMobile: 1069.45,
+    toWeb: 9999,
+    toMobile: 9999,
   },
   {
     title: "Studios",
@@ -14,6 +14,7 @@ export const navbarData: Navbar[] = [
   },
   {
     title: "T & C",
+    toPath: "TC",
   },
   {
     title: "Feeds",

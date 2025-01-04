@@ -1,13 +1,19 @@
-import { scrollPosState } from "@stores/page";
+import { RootStackParamList } from "@interfaces/navigation";
+import { createNavigationContainerRef } from "@react-navigation/native";
+import { currentRouteState, scrollPosState } from "@stores/page";
 import { useFonts } from "expo-font";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ScrollView } from "react-native";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 
 const usePrepare = () => {
+  const [navReady, setNavReady] = useState(false);
+
+  const [currentRoute, setCurrentRoute] = useRecoilState(currentRouteState);
   const setScrollPos = useSetRecoilState(scrollPosState);
 
   const scrollRef = useRef<ScrollView | null>(null);
+  const navigationRef = createNavigationContainerRef<RootStackParamList>();
 
   const [fontsLoaded] = useFonts({
     Helvetica: require("@assets/fonts/Helvetica.ttf"),
@@ -21,9 +27,19 @@ const usePrepare = () => {
     }
   }, [scrollRef]);
 
+  useEffect(() => {
+    if (navigationRef) {
+      setNavReady(true);
+      setCurrentRoute(navigationRef.current?.getCurrentRoute()!.name!);
+    }
+  }, [navigationRef]);
+
   return {
     fontsLoaded,
+    navReady,
     scrollRef,
+    currentRoute,
+    navigationRef,
   };
 };
 

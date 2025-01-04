@@ -7,14 +7,30 @@ import Animated from "react-native-reanimated";
 import useNavbar from "@hooks/useNavbar";
 import useMedia from "@hooks/useMedia";
 import { onHandleBook } from "@utils/helper/helperFunc";
+import { NavigationContainerRefWithCurrent } from "@react-navigation/native";
+import { RootStackParamList } from "@interfaces/navigation";
+import { useRecoilState } from "recoil";
+import { currentRouteState } from "@stores/page";
 
 type Props = {
   scrollRef: MutableRefObject<ScrollView | null>;
+  navigationRef: NavigationContainerRefWithCurrent<RootStackParamList>;
 };
 
-const Navbar = ({ scrollRef }: Props) => {
+const Navbar = ({ scrollRef, navigationRef }: Props) => {
+  const [currentRoute, setCurrentRoute] = useRecoilState(currentRouteState);
+
   const { navbarAnimatedStyle } = useNavbar();
   const { isMobile } = useMedia();
+
+  const onHandleHome = () => {
+    if (currentRoute === "Home") {
+      scrollRef.current?.scrollTo({ y: 0, animated: true });
+    } else {
+      navigationRef.navigate("Home");
+      setCurrentRoute("Home");
+    }
+  };
 
   return (
     <Animated.View
@@ -24,9 +40,11 @@ const Navbar = ({ scrollRef }: Props) => {
         navbarAnimatedStyle,
       ]}
     >
-      <LogoButton />
+      <LogoButton onPress={onHandleHome} />
 
-      {!isMobile && <NavbarList scrollRef={scrollRef} />}
+      {!isMobile && currentRoute === "Home" ? (
+        <NavbarList scrollRef={scrollRef} navigationRef={navigationRef} />
+      ) : null}
 
       {isMobile ? (
         <HamburgerButton />

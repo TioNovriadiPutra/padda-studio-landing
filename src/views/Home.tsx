@@ -8,6 +8,7 @@ import {
   Section5,
   Section6,
   Section7,
+  SectionFooter,
 } from "@components/organism";
 import { colors } from "@themes/colors";
 import useMedia from "@hooks/useMedia";
@@ -45,21 +46,15 @@ const Home = ({ scrollRef }: Props) => {
       <Section1 isMobile={isMobile} />
 
       <Section2
-        trigger={
-          isMobile
-            ? scrollPos >= navbarData[0].toMobile! - 100
-            : scrollPos >= navbarData[0].toWeb! - 100
-        }
-        trigger2={scrollPos >= navbarData[0].toMobile! + 128 + image2Height}
+        trigger={isMobile ? scrollPos >= 913.05 : scrollPos >= 776}
+        trigger2={scrollPos >= 1141.05 + image2Height}
         isMobile={isMobile}
         onLayout={onHandleImageLayout}
       />
 
       <Section3
         trigger={
-          isMobile
-            ? scrollPos >= navbarData[0].toMobile! + 1242
-            : scrollPos >= navbarData[0].toWeb! + 64 + image2Height
+          isMobile ? scrollPos >= 2255.05 : scrollPos >= 940 + image2Height
         }
         isMobile={isMobile}
       />
@@ -77,7 +72,16 @@ const Home = ({ scrollRef }: Props) => {
 
       <Section6 scrollPos={scrollPos} isMobile={isMobile} />
 
-      <Section7 />
+      <Section7
+        trigger={
+          isMobile
+            ? scrollPos >= navbarData[1].toMobile! + 4568.5
+            : scrollPos >= navbarData[1].toWeb! + 3224
+        }
+        isMobile={isMobile}
+      />
+
+      <SectionFooter isMobile={isMobile} />
     </ScrollView>
   );
 };

@@ -9,6 +9,8 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
+import { useRecoilValue } from "recoil";
+import { scrollPosState } from "@stores/page";
 
 type Props = {
   trigger: boolean;
@@ -17,6 +19,8 @@ type Props = {
 };
 
 const Section2Header = ({ trigger, isMobile, onLayout }: Props) => {
+  const scrollPos = useRecoilValue(scrollPosState);
+
   const sectionAnim = useSharedValue(0);
 
   const sectionAnimatedStyle = useAnimatedStyle(() => {
@@ -54,7 +58,10 @@ const Section2Header = ({ trigger, isMobile, onLayout }: Props) => {
         />
       </Animated.View>
 
-      <Section2Desc trigger={trigger} isMobile={isMobile} />
+      <Section2Desc
+        trigger={isMobile ? scrollPos >= 1113.05 : trigger}
+        isMobile={isMobile}
+      />
     </View>
   );
 };

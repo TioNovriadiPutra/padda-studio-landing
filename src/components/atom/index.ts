@@ -10,3 +10,6 @@ export { default as Section2Box } from "./Section2Box";
 export { default as Section5Box } from "./Section5Box";
 export { default as Section6Studio } from "./Section6Studio";
 export { default as CarouselItem } from "./CarouselItem";
+export { default as SectionFooterLogo } from "./SectionFooterLogo";
+export { default as SectionFooterNav } from "./SectionFooterNav";
+export { default as SectionFooterInfo } from "./SectionFooterInfo";

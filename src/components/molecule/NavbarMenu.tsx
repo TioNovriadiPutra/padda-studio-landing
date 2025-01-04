@@ -9,12 +9,15 @@ import {
 import { colors } from "@themes/colors";
 import Animated from "react-native-reanimated";
 import { onHandleBook } from "@utils/helper/helperFunc";
+import { NavigationContainerRefWithCurrent } from "@react-navigation/native";
+import { RootStackParamList } from "@interfaces/navigation";
 
 type Props = {
   animatedStyle: { height: number };
   onHandleLayout: (e: LayoutChangeEvent) => void;
   scrollRef: MutableRefObject<ScrollView | null>;
   onHandleClose: () => void;
+  navigationRef: NavigationContainerRefWithCurrent<RootStackParamList>;
 };
 
 const NavbarMenu = ({
@@ -22,6 +25,7 @@ const NavbarMenu = ({
   onHandleLayout,
   scrollRef,
   onHandleClose,
+  navigationRef,
 }: Props) => {
   return (
     <Animated.View style={[styles.container, animatedStyle]}>
@@ -34,6 +38,7 @@ const NavbarMenu = ({
                 itemData={item}
                 scrollRef={scrollRef}
                 onHandleClose={onHandleClose}
+                navigationRef={navigationRef}
               />
             ))}
           </View>

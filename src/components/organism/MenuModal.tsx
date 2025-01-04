@@ -11,12 +11,15 @@ import { colors } from "@themes/colors";
 import { icons } from "@themes/sizing";
 import useNavbarMenu from "@hooks/useNavbarMenu";
 import { NavbarMenu } from "@components/molecule";
+import { NavigationContainerRefWithCurrent } from "@react-navigation/native";
+import { RootStackParamList } from "@interfaces/navigation";
 
 type Props = {
   scrollRef: MutableRefObject<ScrollView | null>;
+  navigationRef: NavigationContainerRefWithCurrent<RootStackParamList>;
 };
 
-const MenuModal = ({ scrollRef }: Props) => {
+const MenuModal = ({ scrollRef, navigationRef }: Props) => {
   const { showMenu, menuAnimatedStyle, onHandleMenuLayout, onHandleClose } =
     useNavbarMenu();
 
@@ -33,6 +36,7 @@ const MenuModal = ({ scrollRef }: Props) => {
             onHandleLayout={onHandleMenuLayout}
             scrollRef={scrollRef}
             onHandleClose={onHandleClose}
+            navigationRef={navigationRef}
           />
 
           <TouchableWithoutFeedback onPress={onHandleClose}>

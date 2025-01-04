@@ -3,17 +3,29 @@ import React, { MutableRefObject } from "react";
 import { fontStyle } from "@themes/fonts";
 import { colors } from "@themes/colors";
 import { Navbar } from "@interfaces/page";
+import { NavigationContainerRefWithCurrent } from "@react-navigation/native";
+import { RootStackParamList } from "@interfaces/navigation";
 
 type Props = {
   itemData: Navbar;
   scrollRef: MutableRefObject<ScrollView | null>;
   onHandleClose: () => void;
+  navigationRef: NavigationContainerRefWithCurrent<RootStackParamList>;
 };
 
-const NavbarMenuItem = ({ itemData, scrollRef, onHandleClose }: Props) => {
+const NavbarMenuItem = ({
+  itemData,
+  scrollRef,
+  onHandleClose,
+  navigationRef,
+}: Props) => {
   const onHandlePress = () => {
-    if (scrollRef) {
-      scrollRef.current?.scrollTo({ y: itemData.toMobile, animated: true });
+    if (itemData.toPath) {
+      navigationRef.navigate(itemData.toPath);
+    } else {
+      if (scrollRef) {
+        scrollRef.current?.scrollTo({ y: itemData.toMobile, animated: true });
+      }
     }
 
     onHandleClose();

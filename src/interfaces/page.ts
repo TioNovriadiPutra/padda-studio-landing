@@ -1,9 +1,11 @@
 import { ImageSourcePropType } from "react-native";
+import { RootStackParamList } from "./navigation";
 
 export type Navbar = {
   title: string;
   toWeb?: number;
   toMobile?: number;
+  toPath?: keyof RootStackParamList;
 };
 
 export type Card = {

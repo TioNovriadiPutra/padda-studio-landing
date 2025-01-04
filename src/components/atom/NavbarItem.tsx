@@ -9,13 +9,20 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
+import { NavigationContainerRefWithCurrent } from "@react-navigation/native";
+import { RootStackParamList } from "@interfaces/navigation";
+import { useSetRecoilState } from "recoil";
+import { currentRouteState } from "@stores/page";
 
 type Props = {
   itemData: Navbar;
   scrollRef: MutableRefObject<ScrollView | null>;
+  navigationRef: NavigationContainerRefWithCurrent<RootStackParamList>;
 };
 
-const NavbarItem = ({ itemData, scrollRef }: Props) => {
+const NavbarItem = ({ itemData, scrollRef, navigationRef }: Props) => {
+  const setCurrentRoute = useSetRecoilState(currentRouteState);
+
   const buttonAnim = useSharedValue(0);
 
   const barAnimatedStyle = useAnimatedStyle(() => {
@@ -35,8 +42,13 @@ const NavbarItem = ({ itemData, scrollRef }: Props) => {
   };
 
   const onHandleClick = () => {
-    if (scrollRef) {
-      scrollRef.current!.scrollTo({ y: itemData.toWeb, animated: true });
+    if (itemData.toPath) {
+      navigationRef.navigate(itemData.toPath);
+      setCurrentRoute(itemData.toPath);
+    } else {
+      if (scrollRef) {
+        scrollRef.current!.scrollTo({ y: itemData.toWeb, animated: true });
+      }
     }
   };
 

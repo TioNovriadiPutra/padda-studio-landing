@@ -8,9 +8,6 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
-import { useRecoilValue } from "recoil";
-import { scrollPosState } from "@stores/page";
-import { navbarData } from "@utils/constant/page";
 
 type Props = {
   trigger: boolean;
@@ -18,8 +15,6 @@ type Props = {
 };
 
 const Section2Desc = ({ trigger, isMobile }: Props) => {
-  const scrollPos = useRecoilValue(scrollPosState);
-
   const sectionAnim = useSharedValue(0);
 
   const sectionAnimatedStyle = useAnimatedStyle(() => {
@@ -32,19 +27,10 @@ const Section2Desc = ({ trigger, isMobile }: Props) => {
   });
 
   useEffect(() => {
-    if (isMobile) {
-      if (
-        scrollPos >= navbarData[0].toMobile! + 100 &&
-        sectionAnim.value === 0
-      ) {
-        sectionAnim.value = withTiming(1, { duration: 1000 });
-      }
-    } else {
-      if (trigger && sectionAnim.value === 0) {
-        sectionAnim.value = withTiming(1, { duration: 1000 });
-      }
+    if (trigger && sectionAnim.value === 0) {
+      sectionAnim.value = withTiming(1, { duration: 1000 });
     }
-  }, [trigger, scrollPos]);
+  }, [trigger]);
 
   return (
     <Animated.View
