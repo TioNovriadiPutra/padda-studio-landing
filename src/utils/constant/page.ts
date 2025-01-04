@@ -1,4 +1,4 @@
-import { Card, Navbar } from "@interfaces/page";
+import { Card, Navbar, Studio } from "@interfaces/page";
 
 export const navbarData: Navbar[] = [
   {
@@ -43,4 +43,47 @@ export const studioButtonData: string[] = [
   "HELENA",
   "TEMATIK JAPAN",
   "MAKEUP ROOM",
+];
+
+export const studioData: Studio[] = [
+  {
+    name: "ALEXANDRIA",
+    desc: `Discover a room atmosphere that combines modern simplicity and classic touches. The room's elegant design and minimalist decoration create the perfect setting for your various creative needs. This space is ready to accommodate your vision with a versatile backdrop and lighting designed for the best results.`,
+    image: require("@assets/images/alexandria.png"),
+    pax: 6,
+    pricePerHour: 145,
+    pricePer3Hous: 350,
+  },
+  {
+    name: "CYCLORAMA",
+    desc: `A cyclorama is a large, concave curtain or wall that is positioned at the back of the stage to create a background. It is often used with special lighting to create the illusion of open space, sky, or great distance. The word "cyclorama" comes from the Greek words kyklos, meaning circle, and orama, meaning view.`,
+    image: require("@assets/images/cyclorama.png"),
+    pax: 10,
+    pricePerHour: 200,
+    pricePer3Hous: 550,
+  },
+  {
+    name: "HELENA",
+    desc: `Java sparrow is a popular cage bird, and has been introduced in a large number of other countries. Both Padda species are threatened by trapping for the cage bird trade. Many taxonomists now place this genus in Lonchura with the mannikins and munias.`,
+    image: require("@assets/images/helena.png"),
+    pax: 6,
+    pricePerHour: 145,
+    pricePer3Hous: 350,
+  },
+  {
+    name: "TEMATIK JAPAN",
+    desc: `Java sparrow is a popular cage bird, and has been introduced in a large number of other countries. Both Padda species are threatened by trapping for the cage bird trade. Many taxonomists now place this genus in Lonchura with the mannikins and munias.`,
+    image: require("@assets/images/tematikJapan.png"),
+    pax: 6,
+    pricePerHour: 150,
+    pricePer3Hous: 350,
+  },
+  {
+    name: "MAKEUP ROOM",
+    desc: `An exclusive makeup room with a large round glass and lights at several points that make you comfortable in preparing yourself to have photographs with pleasure. This room is also equipped with air conditioner and a closed changing room so you can keep your privacy in preparing yourself.`,
+    image: require("@assets/images/makeupRoom.png"),
+    pax: 6,
+    sharing: 50,
+    private: 350,
+  },
 ];

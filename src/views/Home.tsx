@@ -6,6 +6,8 @@ import {
   Section3,
   Section4,
   Section5,
+  Section6,
+  Section7,
 } from "@components/organism";
 import { colors } from "@themes/colors";
 import useMedia from "@hooks/useMedia";
@@ -72,6 +74,10 @@ const Home = ({ scrollRef }: Props) => {
         }
         isMobile={isMobile}
       />
+
+      <Section6 scrollPos={scrollPos} isMobile={isMobile} />
+
+      <Section7 />
     </ScrollView>
   );
 };

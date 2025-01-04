@@ -11,3 +11,14 @@ export type Card = {
   title: string;
   desc: string;
 };
+
+export type Studio = {
+  name: string;
+  desc: string;
+  pax: number;
+  image: ImageSourcePropType;
+  pricePerHour?: number;
+  pricePer3Hous?: number;
+  sharing?: number;
+  private?: number;
+};

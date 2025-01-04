@@ -4,6 +4,10 @@ export const WIDTH = Dimensions.get("window").width;
 export const HEIGHT = Dimensions.get("window").height;
 
 export const icons = StyleSheet.create({
+  IconXS: {
+    width: 14,
+    height: 14,
+  },
   IconSM: {
     width: 18,
     height: 18,
