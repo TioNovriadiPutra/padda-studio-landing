@@ -127,7 +127,8 @@ const Section6Studio = ({ itemData, even, trigger, isMobile }: Props) => {
                   !isMobile && styles.labelWeb,
                 ]}
               >
-                Rp {itemData.pricePer3Hous || itemData.private}K /3 Hour{" "}
+                Rp {itemData.pricePer3Hous || itemData.private}K /
+                {itemData.pricePer3Hous && "3 "}Hour{" "}
                 {itemData.private && "(Private)"}
               </Text>
             </View>

@@ -1,4 +1,5 @@
 import { Card, Navbar, Studio } from "@interfaces/page";
+import { ImageSourcePropType } from "react-native";
 
 export const navbarData: Navbar[] = [
   {
@@ -86,4 +87,12 @@ export const studioData: Studio[] = [
     sharing: 50,
     private: 350,
   },
+];
+
+export const carouselData: ImageSourcePropType[] = [
+  require("@assets/images/slide1.png"),
+  require("@assets/images/slide2.png"),
+  require("@assets/images/slide3.png"),
+  require("@assets/images/slide4.png"),
+  require("@assets/images/slide5.png"),
 ];

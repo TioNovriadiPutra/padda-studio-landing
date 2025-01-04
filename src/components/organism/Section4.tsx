@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React from "react";
 import { colors } from "@themes/colors";
+import { Carousel } from "@components/molecule";
 
 type Props = {
   isMobile: boolean;
@@ -14,7 +15,7 @@ const Section4 = ({ isMobile }: Props) => {
         isMobile ? styles.containerMobile : styles.containerWeb,
       ]}
     >
-      <Text>Section4</Text>
+      <Carousel isMobile={isMobile} />
     </View>
   );
 };

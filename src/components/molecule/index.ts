@@ -7,3 +7,4 @@ export { default as Section2Header } from "./Section2Header";
 export { default as Section2BoxList } from "./Section2BoxList";
 export { default as Section5List } from "./Section5List";
 export { default as Section6List } from "./Section6List";
+export { default as Carousel } from "./Carousel";
