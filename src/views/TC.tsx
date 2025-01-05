@@ -1,12 +1,25 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
+import { useSetRecoilState } from "recoil";
+import { currentRouteState } from "@stores/page";
+import { useIsFocused } from "@react-navigation/native";
 
 const TC = () => {
-  return (
-    <View>
-      <Text>TC</Text>
-    </View>
-  );
+	const setCurrentRoute = useSetRecoilState(currentRouteState);
+
+	const isFocused = useIsFocused();
+
+	useEffect(() => {
+		if (isFocused) {
+			setCurrentRoute("TC");
+		}
+	}, [isFocused]);
+
+	return (
+		<View>
+			<Text>TC</Text>
+		</View>
+	);
 };
 
 export default TC;
