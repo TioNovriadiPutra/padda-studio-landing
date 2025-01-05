@@ -10,3 +10,5 @@ export { default as Section6List } from "./Section6List";
 export { default as Carousel } from "./Carousel";
 export { default as Section7Action } from "./Section7Action";
 export { default as SectionFooterPadda } from "./SectionFooterPadda";
+export { default as BookingForm } from "./BookingForm";
+export { default as BookingDesc } from "./BookingDesc";

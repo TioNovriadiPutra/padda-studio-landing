@@ -1,93 +1,125 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import React, { MutableRefObject } from "react";
 import { fontStyle } from "@themes/fonts";
 import { colors } from "@themes/colors";
+import { useRecoilValue } from "recoil";
+import { currentRouteState } from "@stores/page";
+import { useNavigation } from "@react-navigation/native";
+import { AppNavigationProps } from "@interfaces/navigation";
 
 type Props = {
-  isMobile: boolean;
+	isMobile: boolean;
+	scrollRef: MutableRefObject<ScrollView | null>;
 };
 
-const SectionFooterNav = ({ isMobile }: Props) => {
-  return (
-    <View style={styles.container}>
-      <Text style={[fontStyle["BodyMBold"], styles.title]}>Navigation</Text>
+const SectionFooterNav = ({ isMobile, scrollRef }: Props) => {
+	const currentRoute = useRecoilValue(currentRouteState);
 
-      <View style={styles.content}>
-        <Pressable>
-          <Text
-            style={[
-              isMobile ? fontStyle["BodySBold"] : fontStyle["BodyMBold"],
-              styles.label,
-            ]}
-          >
-            Home
-          </Text>
-        </Pressable>
+	const nav = useNavigation<AppNavigationProps>();
 
-        <Pressable>
-          <Text
-            style={[
-              isMobile ? fontStyle["BodySBold"] : fontStyle["BodyMBold"],
-              styles.label,
-            ]}
-          >
-            About Us
-          </Text>
-        </Pressable>
+	const onHandleHome = () => {
+		if (currentRoute !== "Home") {
+			nav.navigate("Home");
+		}
 
-        <Pressable>
-          <Text
-            style={[
-              isMobile ? fontStyle["BodySBold"] : fontStyle["BodyMBold"],
-              styles.label,
-            ]}
-          >
-            Pricing
-          </Text>
-        </Pressable>
+		scrollRef.current?.scrollTo({
+			y: 0,
+			animated: true,
+		});
+	};
 
-        <Pressable>
-          <Text
-            style={[
-              isMobile ? fontStyle["BodySBold"] : fontStyle["BodyMBold"],
-              styles.label,
-            ]}
-          >
-            FAQ
-          </Text>
-        </Pressable>
-      </View>
+	const onHandleAbout = () => {
+		if (currentRoute !== "Home") {
+			nav.navigate("Home");
+		}
+	};
 
-      <Pressable>
-        <Text
-          style={[
-            isMobile ? fontStyle["BodySBold"] : fontStyle["BodyMBold"],
-            styles.label,
-          ]}
-        >
-          Booking
-        </Text>
-      </Pressable>
-    </View>
-  );
+	const onHandleBook = () => {
+		if (currentRoute !== "Booking") {
+			nav.navigate("Booking");
+		}
+	};
+
+	return (
+		<View style={styles.container}>
+			<Text style={[fontStyle["BodyMBold"], styles.title]}>Navigation</Text>
+
+			<View style={styles.content}>
+				<Pressable onPress={onHandleHome}>
+					<Text
+						style={[
+							isMobile ? fontStyle["BodySBold"] : fontStyle["BodyMBold"],
+							styles.label,
+						]}
+					>
+						Home
+					</Text>
+				</Pressable>
+
+				<Pressable onPress={onHandleAbout}>
+					<Text
+						style={[
+							isMobile ? fontStyle["BodySBold"] : fontStyle["BodyMBold"],
+							styles.label,
+						]}
+					>
+						About Us
+					</Text>
+				</Pressable>
+
+				<Pressable onPress={onHandleAbout}>
+					<Text
+						style={[
+							isMobile ? fontStyle["BodySBold"] : fontStyle["BodyMBold"],
+							styles.label,
+						]}
+					>
+						Pricing
+					</Text>
+				</Pressable>
+
+				<Pressable onPress={onHandleAbout}>
+					<Text
+						style={[
+							isMobile ? fontStyle["BodySBold"] : fontStyle["BodyMBold"],
+							styles.label,
+						]}
+					>
+						FAQ
+					</Text>
+				</Pressable>
+			</View>
+
+			<Pressable onPress={onHandleBook}>
+				<Text
+					style={[
+						isMobile ? fontStyle["BodySBold"] : fontStyle["BodyMBold"],
+						styles.label,
+					]}
+				>
+					Booking
+				</Text>
+			</Pressable>
+		</View>
+	);
 };
 
 export default SectionFooterNav;
 
 const styles = StyleSheet.create({
-  container: {
-    maxWidth: 305,
-  },
-  title: {
-    color: colors["Neutral-500"],
-    marginBottom: 32,
-  },
-  content: {
-    flexDirection: "row",
-    gap: 24,
-    marginBottom: 24,
-  },
-  label: {
-    color: colors["Neutral-50"],
-  },
+	container: {
+		maxWidth: 305,
+	},
+	title: {
+		color: colors["Neutral-500"],
+		marginBottom: 32,
+	},
+	content: {
+		flexDirection: "row",
+		gap: 24,
+		marginBottom: 24,
+	},
+	label: {
+		color: colors["Neutral-50"],
+	},
 });

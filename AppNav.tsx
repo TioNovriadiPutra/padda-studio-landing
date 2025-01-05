@@ -8,41 +8,47 @@ import { MenuModal, Navbar } from "@components/organism";
 import { colors } from "@themes/colors";
 import { linking } from "@utils/config/linking";
 import TC from "@views/TC";
+import Booking from "@views/Booking";
 
 const AppNav = () => {
-  const { navReady, fontsLoaded, scrollRef, navigationRef } = usePrepare();
+	const { navReady, fontsLoaded, scrollRef, navigationRef } = usePrepare();
 
-  if (!fontsLoaded || !navReady) return null;
+	if (!fontsLoaded || !navReady) return null;
 
-  return (
-    <View style={styles.container}>
-      <MenuModal scrollRef={scrollRef} navigationRef={navigationRef} />
-      <Navbar scrollRef={scrollRef} navigationRef={navigationRef} />
+	return (
+		<View style={styles.container}>
+			<MenuModal scrollRef={scrollRef} navigationRef={navigationRef} />
+			<Navbar scrollRef={scrollRef} navigationRef={navigationRef} />
 
-      <NavigationContainer ref={navigationRef} linking={linking}>
-        <AppStack.Navigator initialRouteName="Home">
-          <AppStack.Screen
-            name="Home"
-            options={{ headerShown: false, title: "PADDA Studio" }}
-          >
-            {() => <Home scrollRef={scrollRef} />}
-          </AppStack.Screen>
-          <AppStack.Screen
-            name="TC"
-            component={TC}
-            options={{ headerShown: false, title: "Terms & Condition" }}
-          />
-        </AppStack.Navigator>
-      </NavigationContainer>
-    </View>
-  );
+			<NavigationContainer ref={navigationRef} linking={linking}>
+				<AppStack.Navigator initialRouteName="Home">
+					<AppStack.Screen
+						name="Home"
+						options={{ headerShown: false, title: "PADDA Studio" }}
+					>
+						{() => <Home scrollRef={scrollRef} />}
+					</AppStack.Screen>
+					<AppStack.Screen
+						name="TC"
+						component={TC}
+						options={{ headerShown: false, title: "Terms & Condition" }}
+					/>
+					<AppStack.Screen
+						name="Booking"
+						component={Booking}
+						options={{ headerShown: false }}
+					/>
+				</AppStack.Navigator>
+			</NavigationContainer>
+		</View>
+	);
 };
 
 export default AppNav;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors["Neutral-50"],
-  },
+	container: {
+		flex: 1,
+		backgroundColor: colors["Neutral-50"],
+	},
 });

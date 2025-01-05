@@ -54,7 +54,7 @@ const Home = ({ scrollRef }: Props) => {
 			}}
 			scrollEventThrottle={16}
 		>
-			<Section1 isMobile={isMobile} />
+			<Section1 isMobile={isMobile} scrollRef={scrollRef} />
 
 			<Section2
 				trigger={isMobile ? scrollPos >= 913.05 : scrollPos >= 776}
@@ -92,7 +92,7 @@ const Home = ({ scrollRef }: Props) => {
 				isMobile={isMobile}
 			/>
 
-			<SectionFooter isMobile={isMobile} />
+			<SectionFooter isMobile={isMobile} scrollRef={scrollRef} />
 		</ScrollView>
 	);
 };
