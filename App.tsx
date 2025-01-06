@@ -1,9 +1,11 @@
-import { View, Text } from "react-native";
 import React from "react";
 import { RecoilRoot } from "recoil";
 import AppNav from "AppNav";
+import { inject } from "@vercel/analytics";
 
 const App = () => {
+	inject();
+
 	return (
 		<RecoilRoot>
 			<AppNav />
