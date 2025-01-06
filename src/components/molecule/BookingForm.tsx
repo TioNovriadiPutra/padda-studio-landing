@@ -18,7 +18,7 @@ export default BookingForm;
 const styles = StyleSheet.create({
 	iframe: {
 		width: "100%",
-		minHeight: 1800,
+		height: 2000,
 		overflow: "hidden",
 	},
 	container: {
