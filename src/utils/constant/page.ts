@@ -1,4 +1,4 @@
-import { Card, Navbar, Studio } from "@interfaces/page";
+import { Card, Navbar, Studio, TCText } from "@interfaces/page";
 import { ImageSourcePropType } from "react-native";
 
 export const navbarData: Navbar[] = [
@@ -93,4 +93,155 @@ export const carouselData: ImageSourcePropType[] = [
 	require("@assets/images/slide3.png"),
 	require("@assets/images/slide4.png"),
 	require("@assets/images/slide5.png"),
+];
+
+export const tcData: TCText[][] = [
+	[
+		{
+			text: "Setiap space sudah memiliki layout dan list properti yang ditentukan.",
+			type: "regular",
+		},
+		{
+			text: "Jika menggunakan properti milik space selain yang dirental, wajib menginformasikan kepada staff studio",
+			type: "bold",
+		},
+		{
+			text: "dan tidak mengganggu sesi foto klien rental lainnya.",
+			type: "regular",
+		},
+	],
+	[
+		{
+			text: "Properti milik space lain tidak dapat di keep penggunaannya, namun dapat digunakan hanya apabila tidak sedang digunakan oleh klien lain pada sesi rental tersebut.",
+			type: "bold",
+		},
+		{
+			text: "Apabila dalam waktu tersebut masuk bookingan yang dimana properti tersebut adalah bagian dari space yang akan digunakan klien, maka properti wajib dikembalikan untuk digunakan oleh klien tersebut sesuai layout dan list properti yang telah ditentukan oleh studio.",
+			type: "regular",
+		},
+	],
+	[
+		{
+			text: "Apabila ingin",
+			type: "regular",
+		},
+		{
+			text: "keep properti dari space lain selain dari space yang dirental maka wajib melakukan booking",
+			type: "bold",
+		},
+		{
+			text: "untuk space yang propertinya digunakan.",
+			type: "regular",
+		},
+	],
+	[
+		{
+			text: "Setiap space disediakan 1 flash studio yang dapat digunakan selama sesi rental.",
+			type: "regular",
+		},
+		{
+			text: "Klien bisa menggunakan maksimal 2 lighting selama sesi rental (Apabila tidak digunakan oleh klien lainnya).",
+			type: "bold",
+		},
+		{
+			text: "[Equipment studio tidak boleh dipindahkan tanpa pemberitahuan dan persetujuan dari staf studio].",
+			type: "regular",
+		},
+	],
+	[
+		{
+			text: "Apabila klien ingin",
+			type: "regular",
+		},
+		{
+			text: "keep lebih dari 1 flash / lighting selama sesi rental maka akan dikenakan charge",
+			type: "bold",
+		},
+		{
+			text: "add-on equipment.",
+			type: "regular",
+		},
+	],
+	[
+		{
+			text: "Untuk",
+			type: "regular",
+		},
+		{
+			text: "penggunaan lighting Continuous dan Trigger wajib menginformasikan ke admin WhatsApp",
+			type: "bold",
+		},
+		{
+			text: "untuk keep saat sesi rental studio.",
+			type: "regular",
+		},
+	],
+	[
+		{
+			text: "Jika",
+			type: "regular",
+		},
+		{
+			text: "menggunakan lebih dari 2 lighting maka lighting / flash tambahan dikenakan charge",
+			type: "bold",
+		},
+		{
+			text: "add-on equipment.",
+			type: "regular",
+		},
+	],
+	[
+		{
+			text: "Harap memastikan",
+			type: "regular",
+		},
+		{
+			text: "jumlah orang yang akan datang ke dalam space sesuai dengan ketentuan space",
+			type: "bold",
+		},
+		{
+			text: "yang berlaku.",
+			type: "regular",
+		},
+	],
+	[
+		{
+			text: "Penyewa bertanggung jawab penuh atas semua orang yang dibawa ke dalam studio selama masa rental. (Termasuk menjaga mereka tidak menggunakan space lain atau menjaga kebersihan serta kelengkapan studio.)",
+			type: "regular",
+		},
+	],
+	[
+		{
+			text: "Penyewa bertanggung jawab penuh atas semua aktivitas yang dilakukan oleh pihak ketiga",
+			type: "bold",
+		},
+		{
+			text: "(vendor dekorasi, makeup, hairdo, dll.) selama masa rental studio. Penyewa wajib hadir dan memastikan segala kegiatan berjalan sesuai dengan peraturan studio. Studio tidak bertanggung jawab atas tindakan atau kelalaian yang dilakukan oleh vendor.",
+			type: "regular",
+		},
+	],
+	[
+		{
+			text: "Staf studio bertugas untuk memberikan dukungan teknis dan memastikan kelancaran operasional studio.",
+			type: "regular",
+		},
+		{
+			text: "Staf studio tidak memiliki kewajiban untuk membantu dalam pemindahan properti, pemasangan instalasi, atau tugas-tugas pribadi penyewa.",
+			type: "bold",
+		},
+		{
+			text: "Penyewa wajib membawa asisten pribadi jika membutuhkan bantuan tambahan selama sesi rental.",
+			type: "regular",
+		},
+	],
+	[
+		{
+			text: "Dilarang menyeret properti di lantai,",
+			type: "bold",
+		},
+		{
+			text: "harap diangkat untuk menghindari lantai dari goresan atau kerusakan.",
+			type: "regular",
+		},
+	],
 ];

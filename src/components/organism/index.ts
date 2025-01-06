@@ -9,3 +9,5 @@ export { default as Section6 } from "./Section6";
 export { default as Section7 } from "./Section7";
 export { default as SectionFooter } from "./SectionFooter";
 export { default as BookingContent } from "./BookingContent";
+export { default as TCHeader } from "./TCHeader";
+export { default as TCContent } from "./TCContent";

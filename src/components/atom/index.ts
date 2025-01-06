@@ -14,3 +14,4 @@ export { default as SectionFooterLogo } from "./SectionFooterLogo";
 export { default as SectionFooterNav } from "./SectionFooterNav";
 export { default as SectionFooterInfo } from "./SectionFooterInfo";
 export { default as BookingIntro } from "./BookingIntro";
+export { default as TCItem } from "./TCItem";

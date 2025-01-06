@@ -12,3 +12,5 @@ export { default as Section7Action } from "./Section7Action";
 export { default as SectionFooterPadda } from "./SectionFooterPadda";
 export { default as BookingForm } from "./BookingForm";
 export { default as BookingDesc } from "./BookingDesc";
+export { default as TCHeaderDesc } from "./TCHeaderDesc";
+export { default as TCList } from "./TCList";

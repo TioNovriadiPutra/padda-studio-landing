@@ -30,14 +30,13 @@ const AppNav = () => {
 					</AppStack.Screen>
 					<AppStack.Screen
 						name="TC"
-						component={TC}
 						options={{ headerShown: false, title: "Terms & Condition" }}
-					/>
-					<AppStack.Screen
-						name="Booking"
-						component={Booking}
-						options={{ headerShown: false }}
-					/>
+					>
+						{() => <TC scrollRef={scrollRef} />}
+					</AppStack.Screen>
+					<AppStack.Screen name="Booking" options={{ headerShown: false }}>
+						{() => <Booking scrollRef={scrollRef} />}
+					</AppStack.Screen>
 				</AppStack.Navigator>
 			</NavigationContainer>
 		</View>
