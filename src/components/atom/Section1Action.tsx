@@ -1,5 +1,5 @@
-import { ScrollView, StyleSheet } from "react-native";
-import React, { MutableRefObject, useEffect } from "react";
+import { StyleSheet } from "react-native";
+import React, { useEffect } from "react";
 import Animated, {
 	interpolate,
 	useAnimatedStyle,
@@ -11,14 +11,12 @@ import CustomButton from "./CustomButton";
 import AppButton from "./AppButton";
 import { useNavigation } from "@react-navigation/native";
 import { AppNavigationProps } from "@interfaces/navigation";
-import { navbarData } from "@utils/constant/page";
 
 type Props = {
 	isMobile: boolean;
-	scrollRef: MutableRefObject<ScrollView | null>;
 };
 
-const Section1Action = ({ isMobile, scrollRef }: Props) => {
+const Section1Action = ({ isMobile }: Props) => {
 	const nav = useNavigation<AppNavigationProps>();
 
 	const buttonAnim = useSharedValue(0);
@@ -36,11 +34,8 @@ const Section1Action = ({ isMobile, scrollRef }: Props) => {
 		nav.navigate("Booking");
 	};
 
-	const onHandleStudio = () => {
-		scrollRef.current?.scrollTo({
-			y: isMobile ? navbarData[1].toMobile : navbarData[1].toWeb,
-			animated: true,
-		});
+	const onHandlePricing = () => {
+		nav.navigate("Pricing");
 	};
 
 	useEffect(() => {
@@ -57,7 +52,7 @@ const Section1Action = ({ isMobile, scrollRef }: Props) => {
 		>
 			<CustomButton label="BOOKING NOW" onClick={onHandleBook} />
 
-			<AppButton type="black" label="VIEW STUDIO" onClick={onHandleStudio} />
+			<AppButton type="black" label="VIEW PRICING" onClick={onHandlePricing} />
 		</Animated.View>
 	);
 };

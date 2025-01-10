@@ -9,6 +9,7 @@ import { colors } from "@themes/colors";
 import { linking } from "@utils/config/linking";
 import TC from "@views/TC";
 import Booking from "@views/Booking";
+import Pricing from "@views/Pricing";
 
 const AppNav = () => {
 	const { navReady, fontsLoaded, scrollRef, navigationRef } = usePrepare();
@@ -17,7 +18,7 @@ const AppNav = () => {
 
 	return (
 		<View style={styles.container}>
-			<MenuModal scrollRef={scrollRef} navigationRef={navigationRef} />
+			<MenuModal navigationRef={navigationRef} />
 			<Navbar scrollRef={scrollRef} navigationRef={navigationRef} />
 
 			<NavigationContainer ref={navigationRef} linking={linking}>
@@ -28,13 +29,25 @@ const AppNav = () => {
 					>
 						{() => <Home scrollRef={scrollRef} />}
 					</AppStack.Screen>
+
 					<AppStack.Screen
 						name="TC"
 						options={{ headerShown: false, title: "Terms & Condition" }}
 					>
 						{() => <TC scrollRef={scrollRef} />}
 					</AppStack.Screen>
-					<AppStack.Screen name="Booking" options={{ headerShown: false }}>
+
+					<AppStack.Screen
+						name="Pricing"
+						options={{ headerShown: false, title: "Pricing" }}
+					>
+						{() => <Pricing scrollRef={scrollRef} />}
+					</AppStack.Screen>
+
+					<AppStack.Screen
+						name="Booking"
+						options={{ headerShown: false, title: "Booking" }}
+					>
 						{() => <Booking scrollRef={scrollRef} />}
 					</AppStack.Screen>
 				</AppStack.Navigator>

@@ -14,7 +14,6 @@ import { colors } from "@themes/colors";
 import useMedia from "@hooks/useMedia";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { currentRouteState, scrollPosState } from "@stores/page";
-import { navbarData } from "@utils/constant/page";
 import { useIsFocused } from "@react-navigation/native";
 
 type Props = {
@@ -54,7 +53,7 @@ const Home = ({ scrollRef }: Props) => {
 			}}
 			scrollEventThrottle={16}
 		>
-			<Section1 isMobile={isMobile} scrollRef={scrollRef} />
+			<Section1 isMobile={isMobile} />
 
 			<Section2
 				trigger={isMobile ? scrollPos >= 913.05 : scrollPos >= 776}
@@ -73,22 +72,14 @@ const Home = ({ scrollRef }: Props) => {
 			<Section4 isMobile={isMobile} />
 
 			<Section5
-				trigger={
-					isMobile
-						? scrollPos >= navbarData[1].toMobile! - 97
-						: scrollPos >= navbarData[1].toWeb! - 500
-				}
+				trigger={isMobile ? scrollPos >= 3090.45 : scrollPos >= 2578}
 				isMobile={isMobile}
 			/>
 
 			<Section6 scrollPos={scrollPos} isMobile={isMobile} />
 
 			<Section7
-				trigger={
-					isMobile
-						? scrollPos >= navbarData[1].toMobile! + 4568.5
-						: scrollPos >= navbarData[1].toWeb! + 3224
-				}
+				trigger={isMobile ? scrollPos >= 7755.95 : scrollPos >= 6302}
 				isMobile={isMobile}
 			/>
 

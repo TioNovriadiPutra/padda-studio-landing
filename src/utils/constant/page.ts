@@ -3,14 +3,12 @@ import { ImageSourcePropType } from "react-native";
 
 export const navbarData: Navbar[] = [
 	{
-		title: "About Us",
-		toWeb: 9999,
-		toMobile: 9999,
+		title: "Home",
+		toPath: "Home",
 	},
 	{
-		title: "Studios",
-		toWeb: 3078,
-		toMobile: 3187.45,
+		title: "Pricing",
+		toPath: "Pricing",
 	},
 	{
 		title: "T & C",

@@ -11,3 +11,4 @@ export { default as SectionFooter } from "./SectionFooter";
 export { default as BookingContent } from "./BookingContent";
 export { default as TCHeader } from "./TCHeader";
 export { default as TCContent } from "./TCContent";
+export { default as Pricing1 } from "./Pricing1";

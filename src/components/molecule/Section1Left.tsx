@@ -1,5 +1,5 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
-import React, { MutableRefObject } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
 import { fontStyle } from "@themes/fonts";
 import { colors } from "@themes/colors";
 import { Section1Action } from "@components/atom";
@@ -8,10 +8,9 @@ import useSection1Left from "@hooks/useSection1Left";
 
 type Props = {
 	isMobile: boolean;
-	scrollRef: MutableRefObject<ScrollView | null>;
 };
 
-const Section1Left = ({ isMobile, scrollRef }: Props) => {
+const Section1Left = ({ isMobile }: Props) => {
 	const { titleAnimatedStyle, descAnimatedStyle } = useSection1Left();
 
 	return (
@@ -44,7 +43,7 @@ const Section1Left = ({ isMobile, scrollRef }: Props) => {
 				images that capture your story with creativity and care.
 			</Animated.Text>
 
-			<Section1Action isMobile={isMobile} scrollRef={scrollRef} />
+			<Section1Action isMobile={isMobile} />
 		</View>
 	);
 };

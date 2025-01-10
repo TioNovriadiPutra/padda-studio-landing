@@ -1,14 +1,13 @@
-import { ScrollView, StyleSheet, View } from "react-native";
-import React, { MutableRefObject } from "react";
+import { StyleSheet, View } from "react-native";
+import React from "react";
 import { colors } from "@themes/colors";
 import { Section1Left, Section1Right } from "@components/molecule";
 
 type Props = {
 	isMobile: boolean;
-	scrollRef: MutableRefObject<ScrollView | null>;
 };
 
-const Section1 = ({ isMobile, scrollRef }: Props) => {
+const Section1 = ({ isMobile }: Props) => {
 	return (
 		<View
 			style={[
@@ -16,7 +15,7 @@ const Section1 = ({ isMobile, scrollRef }: Props) => {
 				isMobile ? styles.containerMobile : styles.containerWeb,
 			]}
 		>
-			<Section1Left isMobile={isMobile} scrollRef={scrollRef} />
+			<Section1Left isMobile={isMobile} />
 
 			<Section1Right isMobile={isMobile} />
 		</View>
