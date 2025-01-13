@@ -31,7 +31,9 @@ const Navbar = ({ scrollRef, navigationRef }: Props) => {
 	};
 
 	const onHandleBook = () => {
-		navigationRef.current?.navigate("Booking");
+		if (currentRoute !== "Booking") {
+			navigationRef.current?.navigate("Booking");
+		}
 	};
 
 	return (
@@ -48,9 +50,9 @@ const Navbar = ({ scrollRef, navigationRef }: Props) => {
 
 			{isMobile ? (
 				<HamburgerButton />
-			) : currentRoute !== "Booking" ? (
+			) : (
 				<CustomButton label="BOOKING NOW" onClick={onHandleBook} />
-			) : null}
+			)}
 		</Animated.View>
 	);
 };

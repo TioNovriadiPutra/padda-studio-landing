@@ -74,6 +74,7 @@ const Home = ({ scrollRef }: Props) => {
 			<Section5
 				trigger={isMobile ? scrollPos >= 3090.45 : scrollPos >= 2578}
 				isMobile={isMobile}
+				scrollRef={scrollRef}
 			/>
 
 			<Section6 scrollPos={scrollPos} isMobile={isMobile} />

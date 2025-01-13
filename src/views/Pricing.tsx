@@ -1,10 +1,21 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import React, { MutableRefObject, useEffect } from "react";
 import { useSetRecoilState } from "recoil";
 import { currentRouteState } from "@stores/page";
 import { useIsFocused } from "@react-navigation/native";
-import { Pricing1, SectionFooter } from "@components/organism";
+import {
+	Pricing1,
+	PricingList,
+	SectionFooter,
+	SpecialOffer,
+} from "@components/organism";
 import useMedia from "@hooks/useMedia";
+import { colors } from "@themes/colors";
+import {
+	priceListData,
+	specialOfferData,
+	specialOfferMobData,
+} from "@utils/constant/page";
 
 type Props = {
 	scrollRef: MutableRefObject<ScrollView | null>;
@@ -23,8 +34,15 @@ const Pricing = ({ scrollRef }: Props) => {
 	}, [isFocused]);
 
 	return (
-		<ScrollView>
-			<Pricing1 />
+		<ScrollView ref={scrollRef} style={styles.container}>
+			<Pricing1 isMobile={isMobile} scrollRef={scrollRef} />
+
+			<SpecialOffer
+				isMobile={isMobile}
+				offerData={isMobile ? specialOfferMobData : specialOfferData}
+			/>
+
+			<PricingList isMobile={isMobile} listData={priceListData} />
 
 			<SectionFooter scrollRef={scrollRef} isMobile={isMobile} />
 		</ScrollView>
@@ -33,4 +51,8 @@ const Pricing = ({ scrollRef }: Props) => {
 
 export default Pricing;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+	container: {
+		backgroundColor: colors["Neutral-50"],
+	},
+});

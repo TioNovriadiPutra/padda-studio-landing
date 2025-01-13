@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet } from "react-native";
-import React, { MutableRefObject, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { BookingContent, SectionFooter } from "@components/organism";
 import useMedia from "@hooks/useMedia";
 import { useSetRecoilState } from "recoil";
@@ -7,12 +7,10 @@ import { currentRouteState } from "@stores/page";
 import { useIsFocused } from "@react-navigation/native";
 import { colors } from "@themes/colors";
 
-type Props = {
-	scrollRef: MutableRefObject<ScrollView | null>;
-};
-
-const Booking = ({ scrollRef }: Props) => {
+const Booking = () => {
 	const setCurrentRoute = useSetRecoilState(currentRouteState);
+
+	const scrollRef = useRef<ScrollView | null>(null);
 
 	const { isMobile } = useMedia();
 
@@ -25,7 +23,7 @@ const Booking = ({ scrollRef }: Props) => {
 	}, [isFocused]);
 
 	return (
-		<ScrollView style={styles.container}>
+		<ScrollView ref={scrollRef} style={styles.container}>
 			<BookingContent isMobile={isMobile} />
 
 			<SectionFooter isMobile={isMobile} scrollRef={scrollRef} />

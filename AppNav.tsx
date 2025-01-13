@@ -12,14 +12,20 @@ import Booking from "@views/Booking";
 import Pricing from "@views/Pricing";
 
 const AppNav = () => {
-	const { navReady, fontsLoaded, scrollRef, navigationRef } = usePrepare();
+	const {
+		navReady,
+		fontsLoaded,
+		scrollRefHome,
+		scrollRefPricing,
+		navigationRef,
+	} = usePrepare();
 
 	if (!fontsLoaded || !navReady) return null;
 
 	return (
 		<View style={styles.container}>
 			<MenuModal navigationRef={navigationRef} />
-			<Navbar scrollRef={scrollRef} navigationRef={navigationRef} />
+			<Navbar scrollRef={scrollRefHome} navigationRef={navigationRef} />
 
 			<NavigationContainer ref={navigationRef} linking={linking}>
 				<AppStack.Navigator initialRouteName="Home">
@@ -27,28 +33,28 @@ const AppNav = () => {
 						name="Home"
 						options={{ headerShown: false, title: "PADDA Studio" }}
 					>
-						{() => <Home scrollRef={scrollRef} />}
+						{() => <Home scrollRef={scrollRefHome} />}
 					</AppStack.Screen>
 
 					<AppStack.Screen
 						name="TC"
 						options={{ headerShown: false, title: "Terms & Condition" }}
 					>
-						{() => <TC scrollRef={scrollRef} />}
+						{() => <TC />}
 					</AppStack.Screen>
 
 					<AppStack.Screen
 						name="Pricing"
 						options={{ headerShown: false, title: "Pricing" }}
 					>
-						{() => <Pricing scrollRef={scrollRef} />}
+						{() => <Pricing scrollRef={scrollRefPricing} />}
 					</AppStack.Screen>
 
 					<AppStack.Screen
 						name="Booking"
 						options={{ headerShown: false, title: "Booking" }}
 					>
-						{() => <Booking scrollRef={scrollRef} />}
+						{() => <Booking />}
 					</AppStack.Screen>
 				</AppStack.Navigator>
 			</NavigationContainer>

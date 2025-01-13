@@ -12,3 +12,5 @@ export { default as BookingContent } from "./BookingContent";
 export { default as TCHeader } from "./TCHeader";
 export { default as TCContent } from "./TCContent";
 export { default as Pricing1 } from "./Pricing1";
+export { default as SpecialOffer } from "./SpecialOffer";
+export { default as PricingList } from "./PricingList";

@@ -9,7 +9,7 @@ import { AppNavigationProps } from "@interfaces/navigation";
 
 type Props = {
 	isMobile: boolean;
-	scrollRef: MutableRefObject<ScrollView | null>;
+	scrollRef?: MutableRefObject<ScrollView | null>;
 };
 
 const SectionFooterNav = ({ isMobile, scrollRef }: Props) => {
@@ -22,22 +22,32 @@ const SectionFooterNav = ({ isMobile, scrollRef }: Props) => {
 			nav.navigate("Home");
 		}
 
-		scrollRef.current?.scrollTo({
+		scrollRef!.current?.scrollTo({
 			y: 0,
 			animated: true,
 		});
 	};
 
-	const onHandleAbout = () => {
-		if (currentRoute !== "Home") {
-			nav.navigate("Home");
+	const onHandlePricing = () => {
+		if (currentRoute !== "Pricing") {
+			nav.navigate("Pricing");
 		}
+
+		scrollRef!.current?.scrollTo({
+			y: 0,
+			animated: true,
+		});
 	};
 
 	const onHandleBook = () => {
 		if (currentRoute !== "Booking") {
 			nav.navigate("Booking");
 		}
+
+		scrollRef!.current?.scrollTo({
+			y: 0,
+			animated: true,
+		});
 	};
 
 	return (
@@ -56,7 +66,7 @@ const SectionFooterNav = ({ isMobile, scrollRef }: Props) => {
 					</Text>
 				</Pressable>
 
-				<Pressable onPress={onHandleAbout}>
+				<Pressable onPress={onHandleHome}>
 					<Text
 						style={[
 							isMobile ? fontStyle["BodySBold"] : fontStyle["BodyMBold"],
@@ -67,7 +77,7 @@ const SectionFooterNav = ({ isMobile, scrollRef }: Props) => {
 					</Text>
 				</Pressable>
 
-				<Pressable onPress={onHandleAbout}>
+				<Pressable onPress={onHandlePricing}>
 					<Text
 						style={[
 							isMobile ? fontStyle["BodySBold"] : fontStyle["BodyMBold"],
@@ -78,7 +88,7 @@ const SectionFooterNav = ({ isMobile, scrollRef }: Props) => {
 					</Text>
 				</Pressable>
 
-				<Pressable onPress={onHandleAbout}>
+				<Pressable onPress={onHandleHome}>
 					<Text
 						style={[
 							isMobile ? fontStyle["BodySBold"] : fontStyle["BodyMBold"],

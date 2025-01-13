@@ -15,3 +15,8 @@ export { default as SectionFooterNav } from "./SectionFooterNav";
 export { default as SectionFooterInfo } from "./SectionFooterInfo";
 export { default as BookingIntro } from "./BookingIntro";
 export { default as TCItem } from "./TCItem";
+export { default as SpecialOfferHeader } from "./SpecialOfferHeader";
+export { default as SpecialOfferFooter } from "./SpecialOfferFooter";
+export { default as PriceItemHeader } from "./PriceItemHeader";
+export { default as PriceItemContent } from "./PriceItemContent";
+export { default as PriceItemFooter } from "./PriceItemFooter";

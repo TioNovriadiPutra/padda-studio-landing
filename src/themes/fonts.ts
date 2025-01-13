@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const fonts = {
 	Helvetica: "Helvetica",
+	HelveticaLight: "HelveticaLight",
 	Playfair: "Playfair",
 };
 
@@ -31,15 +32,13 @@ export const fontStyle = StyleSheet.create({
 		lineHeight: 28,
 	},
 	SubtitleLight: {
-		fontFamily: fonts["Helvetica"],
+		fontFamily: fonts["HelveticaLight"],
 		fontSize: 20,
-		fontWeight: "300",
 		lineHeight: 28,
 	},
 	SubtitleReg: {
 		fontFamily: fonts["Helvetica"],
 		fontSize: 32,
-		fontWeight: "400",
 		lineHeight: 31.36,
 	},
 	Button: {
@@ -51,7 +50,6 @@ export const fontStyle = StyleSheet.create({
 	BodyXL: {
 		fontFamily: fonts["Helvetica"],
 		fontSize: 40,
-		fontWeight: "400",
 		lineHeight: 40,
 	},
 	BodyL: {
@@ -67,9 +65,8 @@ export const fontStyle = StyleSheet.create({
 		lineHeight: 21,
 	},
 	BodyMLight: {
-		fontFamily: fonts["Helvetica"],
+		fontFamily: fonts["HelveticaLight"],
 		fontSize: 18,
-		fontWeight: "300",
 		lineHeight: 22,
 	},
 	BodySBold: {
@@ -81,13 +78,17 @@ export const fontStyle = StyleSheet.create({
 	BodySReg: {
 		fontFamily: fonts["Helvetica"],
 		fontSize: 16,
-		fontWeight: "400",
 		lineHeight: 20,
 	},
 	BodyXS: {
 		fontFamily: fonts["Helvetica"],
 		fontSize: 14,
-		fontWeight: "400",
+		lineHeight: 20,
+	},
+	BodyXSBold: {
+		fontFamily: fonts["Helvetica"],
+		fontSize: 14,
+		fontWeight: "700",
 		lineHeight: 20,
 	},
 });

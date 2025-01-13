@@ -8,7 +8,7 @@ import {
 
 type Props = {
 	isMobile: boolean;
-	scrollRef: MutableRefObject<ScrollView | null>;
+	scrollRef?: MutableRefObject<ScrollView | null>;
 };
 
 const SectionFooterPadda = ({ isMobile, scrollRef }: Props) => {
