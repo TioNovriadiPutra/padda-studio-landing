@@ -54,6 +54,7 @@ const PricingList = ({ isMobile, listData }: Props) => {
 					showsHorizontalScrollIndicator={false}
 					scrollEnabled={false}
 					keyExtractor={(_, index) => index.toString()}
+					keyboardShouldPersistTaps="handled"
 					renderItem={({ item, index }) => (
 						<PriceItem
 							itemData={item}
