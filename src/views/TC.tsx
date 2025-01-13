@@ -1,16 +1,12 @@
 import { ScrollView } from "react-native";
-import React, { MutableRefObject, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
 import { currentRouteState } from "@stores/page";
 import { useIsFocused } from "@react-navigation/native";
 import { SectionFooter, TCContent, TCHeader } from "@components/organism";
 import useMedia from "@hooks/useMedia";
 
-type Props = {
-	scrollRef: MutableRefObject<ScrollView | null>;
-};
-
-const TC = ({ scrollRef }: Props) => {
+const TC = () => {
 	const setCurrentRoute = useSetRecoilState(currentRouteState);
 
 	const { isMobile } = useMedia();
@@ -28,7 +24,7 @@ const TC = ({ scrollRef }: Props) => {
 
 			<TCContent isMobile={isMobile} />
 
-			<SectionFooter isMobile={isMobile} scrollRef={scrollRef} />
+			<SectionFooter isMobile={isMobile} />
 		</ScrollView>
 	);
 };

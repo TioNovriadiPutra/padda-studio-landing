@@ -1,16 +1,22 @@
-import { Card, Navbar, Studio, TCText } from "@interfaces/page";
+import {
+	ButtonListType,
+	Card,
+	Navbar,
+	PriceListType,
+	SpecialOfferType,
+	Studio,
+	TCText,
+} from "@interfaces/page";
 import { ImageSourcePropType } from "react-native";
 
 export const navbarData: Navbar[] = [
 	{
-		title: "About Us",
-		toWeb: 9999,
-		toMobile: 9999,
+		title: "Home",
+		toPath: "Home",
 	},
 	{
-		title: "Studios",
-		toWeb: 3078,
-		toMobile: 3187.45,
+		title: "Pricing",
+		toPath: "Pricing",
 	},
 	{
 		title: "T & C",
@@ -36,12 +42,27 @@ export const cardData: Card[] = [
 	},
 ];
 
-export const studioButtonData: string[] = [
-	"ALEXANDRIA",
-	"CYCLORAMA",
-	"HELENA",
-	"TEMATIK JAPAN",
-	"MAKEUP ROOM",
+export const studioButtonData: ButtonListType[] = [
+	{
+		label: "ALEXANDRIA",
+		to: 3662,
+	},
+	{
+		label: "CYCLORAMA",
+		to: 3662 + 660,
+	},
+	{
+		label: "HELENA",
+		to: 3662 + 660 * 2,
+	},
+	{
+		label: "TEMATIK JAPAN",
+		to: 3662 + 660 * 3,
+	},
+	{
+		label: "MAKEUP ROOM",
+		to: 3662 + 660 * 4,
+	},
 ];
 
 export const studioData: Studio[] = [
@@ -244,4 +265,327 @@ export const tcData: TCText[][] = [
 			type: "regular",
 		},
 	],
+];
+
+export const pricingButtonData: ButtonListType[] = [
+	{
+		label: "SPECIAL OFFER",
+		to: 578,
+	},
+	{
+		label: "WEDDING",
+		to: 1316,
+	},
+	{
+		label: "PREWEDDING",
+	},
+	{
+		label: "MATERNITY",
+	},
+	{
+		label: "GRADUATION",
+	},
+
+	{
+		label: "SOLO & COUPLE",
+	},
+	{
+		label: "GROUP",
+	},
+	{
+		label: "PERSONAL",
+	},
+];
+
+export const specialOfferData: SpecialOfferType = {
+	package: "Tematik Japan Photoshoot",
+	price: "IDR 60K / Person",
+	pax: "Max. 6 PAX",
+	desc: "Experience the charm and elegance of Japan with our best offer: a thematic Japanese photoshoot! Immerse yourself in a beautifully curated setting featuring authentic Japanese-inspired decor.",
+	optional: ["20 Minutes", "Print 4r / Gantungan kunci (2 Foto)"],
+	images: [
+		require("@assets/images/special1.png"),
+		require("@assets/images/special2.png"),
+		require("@assets/images/special3.png"),
+		require("@assets/images/special4.png"),
+	],
+	addOn: [
+		"Extra Time IDR. 20K / 10 Minutes",
+		"30% DP required for booking",
+		"All payments are Non-Refundable.",
+	],
+};
+
+export const specialOfferMobData: SpecialOfferType = {
+	package: "Tematik Japan Photoshoot",
+	price: "IDR 60K / Person",
+	pax: "Max. 6 PAX",
+	desc: "Experience the charm and elegance of Japan with our best offer: a thematic Japanese photoshoot! Immerse yourself in a beautifully curated setting featuring authentic Japanese-inspired decor.",
+	optional: ["20 Minutes", "Print 4r / Gantungan kunci (2 Foto)"],
+	images: [
+		require("@assets/images/special1Mob.png"),
+		require("@assets/images/special2Mob.png"),
+		require("@assets/images/special3Mob.png"),
+		require("@assets/images/special4Mob.png"),
+	],
+	addOn: [
+		"Extra Time IDR. 20K / 10 Minutes",
+		"30% DP required for booking",
+		"All payments are Non-Refundable.",
+	],
+};
+
+export const priceListData: PriceListType[] = [
+	{
+		header: {
+			name: "WEDDING",
+			desc: "Our wedding photography packages are crafted to capture every magical moment of your special day, from the smallest details to the grandest celebrations.",
+			image: require("@assets/images/wedding.png"),
+		},
+		packages: [
+			{
+				name: "Executive",
+				price: "IDR 3.000K",
+				details: [
+					"1 Photographer + Assistant",
+					"2X Print 18 RS Frame Linen",
+					"Album Magnetic + Cetak 4R-100 Pcs",
+				],
+			},
+			{
+				name: "Deluxe",
+				price: "IDR 4.700K",
+				details: [
+					"2 Photographer + Assistant",
+					"2X Print 20 RS Frame Linen",
+					"1X Print 10 RS + Frame Minimalist",
+					"Album Magnetic + Cetak 4R-100 Pcs",
+				],
+			},
+			{
+				name: "Suite",
+				price: "IDR 6.500K",
+				details: [
+					"2 Photographer + Assistant",
+					"2X Print 20 RS Frame Linen",
+					"2X Print 10 RS + Frame Minimalist",
+					"Album Magnetic + Print 4R-100 Lembar Photo",
+				],
+			},
+		],
+		tc: [
+			"Enhance your package with a cinematic video for an additional IDR 2.000K*",
+			"30% DP required for booking",
+			"All payments are Non-Refundable.",
+		],
+		notes: "*For Executive and Deluxe package",
+	},
+	{
+		header: {
+			name: "PREWEDDING",
+			desc: "Whether you envision a romantic outdoor session or a creative themed shoot, capture the love and excitement leading up to your big day.",
+			image: require("@assets/images/prewedding.png"),
+		},
+		packages: [
+			{
+				name: "Silver",
+				price: "IDR 1.000K",
+				details: ["2x Print 18RS + Frame Linen", "4R Print 5 lembar"],
+			},
+			{
+				name: "Gold",
+				price: "IDR 2.500K",
+				details: [
+					"STUDIO + OUTDOOR",
+					"2x Print 20RS + Frame Linen",
+					"4R Print 5 LEMBAR",
+				],
+			},
+		],
+		tc: [
+			"Enhance your package with a cinematic video for an additional IDR 1.000K",
+			"30% DP required for booking",
+			"All payments are Non-Refundable.",
+		],
+	},
+	{
+		header: {
+			name: "MATERNITY",
+			desc: "Crafted to celebrate this beautiful chapter of your life with elegance and love. Whether you prefer the comfort of our cozy studio or the charm of an outdoor setting.",
+			image: require("@assets/images/maternity.png"),
+		},
+		packages: [
+			{
+				name: "Studio",
+				price: "IDR 480K",
+				details: [
+					"1X PRINT 10 RS + FRAME LAMINATING",
+					"5X PRINT 4R LAMINATING",
+				],
+			},
+			{
+				name: "Outdoor",
+				price: "IDR 750K",
+				details: [
+					"1X PRINT 10 RS + FRAME LAMINATING",
+					"5X PRINT 4R LAMINATING",
+				],
+			},
+			{
+				name: "Studio + Outdoor",
+				price: "IDR 2.500K",
+				details: [
+					"1X PRINT 10 RS + FRAME LAMINATING",
+					"5X PRINT 4R LAMINATING",
+				],
+			},
+		],
+		tc: [
+			"Enhance your package with a cinematic video for an additional IDR 1.500K",
+			"30% DP required for booking",
+			"All payments are Non-Refundable.",
+		],
+		superNotes: "Max Duration 1 Hour and 2 Custom Edit",
+	},
+	{
+		header: {
+			name: "GRADUATION",
+			desc: "We’ll tailor the session to reflect your personality and accomplishments. Professional photoshoot, expert editing, and high-quality images that capture your pride and joy.",
+			image: require("@assets/images/graduation.png"),
+		},
+		packages: [
+			{
+				name: "Silver",
+				price: "IDR 250K",
+				details: [
+					"2-5 Person",
+					"15 Minutes",
+					"5 Edit Photos",
+					"1 Print 10rs With Frame",
+				],
+			},
+			{
+				name: "Gold",
+				price: "IDR 450K",
+				details: [
+					"2-5 Person",
+					"15 Minutes",
+					"5 Edit Photos",
+					"1 Print 18rs With Frame",
+				],
+			},
+			{
+				name: "Platinum",
+				price: "IDR 600K",
+				details: [
+					"6-10 Person",
+					"15 Minutes",
+					"5 Edit Photos",
+					"1 Print 10rs With Frame",
+					"1 Print 18rs With Frame",
+				],
+			},
+		],
+		tc: [
+			"Extra person IDR 20 K / Person",
+			"Extra time IDR. 20K / 10 Minutes",
+			"30% DP required for booking",
+			"All payments are Non-Refundable.",
+		],
+		superNotes: "Required to use the graduation attribute",
+	},
+	{
+		header: {
+			name: "SOLO / COUPLE",
+			desc: "Our solo or couple photography package is perfect for capturing your individuality or celebrating your bond with someone special.",
+			image: require("@assets/images/couple.png"),
+		},
+		packages: [
+			{
+				name: "Jomblo",
+				price: "IDR 150K",
+				details: ["15 minutes", "5 Edit photos", "5 Print 4R"],
+			},
+			{
+				name: "Bareng Doi",
+				price: "IDR 100K / PERSON",
+				details: ["30 minutes", "5 Edit photos", "Print 4R/Person"],
+			},
+		],
+		tc: [
+			"Extra time IDR. 20K / 10 Minutes",
+			"30% DP required for booking",
+			"All payments are Non-Refundable.",
+		],
+	},
+	{
+		header: {
+			name: "GROUP",
+			desc: "Whether you’re celebrating a special occasion or simply making memories, our group photo packages deliver stunning visuals you’ll cherish forever.",
+			image: require("@assets/images/group.png"),
+		},
+		packages: [
+			{
+				name: "Paket Rame",
+				price: "IDR 65K / PERSON",
+				details: [
+					"3-5 Person",
+					"15 minutes",
+					"5 Edit photos",
+					"1 Print 4R/Person",
+				],
+			},
+			{
+				name: "Paket Rame Banget",
+				price: "IDR 50K / PERSON",
+				details: [
+					"> 5 Person",
+					"30 minutes",
+					"5 Edit photos",
+					"1 Print 4R/Person",
+				],
+			},
+		],
+		tc: [
+			"Extra person IDR. 20K / Person",
+			"Extra time IDR. 20K / 10 Minutes",
+			"30% DP required for booking",
+			"All payments are Non-Refundable.",
+		],
+		superNotes: "Max. 10 PAX",
+	},
+	{
+		header: {
+			name: "PERSONAL PORTRAIT",
+			desc: "Showcase your individuality and capture your best self in stunning detail. With expert guidance we will ensure you feel comfortable and confident throughout the session.",
+			image: require("@assets/images/personal.png"),
+		},
+		packages: [
+			{
+				name: "Formal",
+				price: "IDR 250K",
+				details: ["30 Minutes", "5 Edit photos", "Max 2 Costume"],
+			},
+			{
+				name: "Unformal",
+				price: "IDR 150K",
+				details: ["30 minutes", "5 Edit photos", "Max 2 Costume"],
+			},
+		],
+		tc: [
+			"Extra time IDR. 20K / 10 Minutes",
+			"30% DP required for booking",
+			"All payments are Non-Refundable.",
+		],
+	},
+];
+
+export const pricingMobileData: string[] = [
+	"Wedding",
+	"Prewedding",
+	"Maternity",
+	"Graduation",
+	"Solo & Couple",
+	"Group",
+	"Personal",
 ];

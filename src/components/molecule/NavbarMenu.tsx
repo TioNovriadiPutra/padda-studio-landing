@@ -1,5 +1,5 @@
-import { LayoutChangeEvent, ScrollView, StyleSheet, View } from "react-native";
-import React, { MutableRefObject } from "react";
+import { LayoutChangeEvent, StyleSheet, View } from "react-native";
+import React from "react";
 import { navbarData } from "@utils/constant/page";
 import {
 	CustomButton,
@@ -16,7 +16,6 @@ import { currentRouteState } from "@stores/page";
 type Props = {
 	animatedStyle: { height: number };
 	onHandleLayout: (e: LayoutChangeEvent) => void;
-	scrollRef: MutableRefObject<ScrollView | null>;
 	onHandleClose: () => void;
 	navigationRef: NavigationContainerRefWithCurrent<RootStackParamList>;
 };
@@ -24,7 +23,6 @@ type Props = {
 const NavbarMenu = ({
 	animatedStyle,
 	onHandleLayout,
-	scrollRef,
 	onHandleClose,
 	navigationRef,
 }: Props) => {
@@ -38,19 +36,16 @@ const NavbarMenu = ({
 		<Animated.View style={[styles.container, animatedStyle]}>
 			<View style={styles.content} onLayout={onHandleLayout}>
 				<View style={styles.function}>
-					{currentRoute === "Home" && (
-						<View style={styles.list}>
-							{navbarData.map((item, index) => (
-								<NavbarMenuItem
-									key={index.toString()}
-									itemData={item}
-									scrollRef={scrollRef}
-									onHandleClose={onHandleClose}
-									navigationRef={navigationRef}
-								/>
-							))}
-						</View>
-					)}
+					<View style={styles.list}>
+						{navbarData.map((item, index) => (
+							<NavbarMenuItem
+								key={index.toString()}
+								itemData={item}
+								onHandleClose={onHandleClose}
+								navigationRef={navigationRef}
+							/>
+						))}
+					</View>
 
 					{currentRoute !== "Booking" && (
 						<CustomButton label="BOOKING NOW" onClick={onHandleBook} />

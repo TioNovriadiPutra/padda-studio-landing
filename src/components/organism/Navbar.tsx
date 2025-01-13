@@ -8,7 +8,7 @@ import useNavbar from "@hooks/useNavbar";
 import useMedia from "@hooks/useMedia";
 import { NavigationContainerRefWithCurrent } from "@react-navigation/native";
 import { RootStackParamList } from "@interfaces/navigation";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { currentRouteState } from "@stores/page";
 
 type Props = {
@@ -17,7 +17,7 @@ type Props = {
 };
 
 const Navbar = ({ scrollRef, navigationRef }: Props) => {
-	const [currentRoute, setCurrentRoute] = useRecoilState(currentRouteState);
+	const currentRoute = useRecoilValue(currentRouteState);
 
 	const { navbarAnimatedStyle } = useNavbar();
 	const { isMobile } = useMedia();
@@ -27,12 +27,13 @@ const Navbar = ({ scrollRef, navigationRef }: Props) => {
 			scrollRef.current?.scrollTo({ y: 0, animated: true });
 		} else {
 			navigationRef.navigate("Home");
-			setCurrentRoute("Home");
 		}
 	};
 
 	const onHandleBook = () => {
-		navigationRef.current?.navigate("Booking");
+		if (currentRoute !== "Booking") {
+			navigationRef.current?.navigate("Booking");
+		}
 	};
 
 	return (
@@ -45,15 +46,13 @@ const Navbar = ({ scrollRef, navigationRef }: Props) => {
 		>
 			<LogoButton onPress={onHandleHome} />
 
-			{!isMobile && currentRoute === "Home" ? (
-				<NavbarList scrollRef={scrollRef} navigationRef={navigationRef} />
-			) : null}
+			{!isMobile && <NavbarList navigationRef={navigationRef} />}
 
 			{isMobile ? (
 				<HamburgerButton />
-			) : currentRoute !== "Booking" ? (
+			) : (
 				<CustomButton label="BOOKING NOW" onClick={onHandleBook} />
-			) : null}
+			)}
 		</Animated.View>
 	);
 };

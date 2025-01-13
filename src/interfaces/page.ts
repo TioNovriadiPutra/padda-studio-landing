@@ -3,9 +3,7 @@ import { RootStackParamList } from "./navigation";
 
 export type Navbar = {
 	title: string;
-	toWeb?: number;
-	toMobile?: number;
-	toPath?: keyof RootStackParamList;
+	toPath: keyof RootStackParamList;
 };
 
 export type Card = {
@@ -28,4 +26,40 @@ export type Studio = {
 export type TCText = {
 	text: string;
 	type: "bold" | "regular";
+};
+
+export type SpecialOfferType = {
+	package: string;
+	price: string;
+	pax: string;
+	desc: string;
+	optional?: string[];
+	images: ImageSourcePropType[];
+	addOn?: string[];
+};
+
+export type PriceListType = {
+	header: PriceHeaderType;
+	packages: PackageType[];
+	tc: string[];
+	notes?: string;
+	superNotes?: string;
+};
+
+export type PriceHeaderType = {
+	name: string;
+	desc: string;
+	image: ImageSourcePropType;
+};
+
+export type PackageType = {
+	name: string;
+	price: string;
+	details: string[];
+	url?: string;
+};
+
+export type ButtonListType = {
+	label: string;
+	to?: number;
 };

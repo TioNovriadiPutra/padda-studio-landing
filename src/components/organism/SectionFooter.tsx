@@ -6,7 +6,7 @@ import { fontStyle } from "@themes/fonts";
 
 type Props = {
 	isMobile: boolean;
-	scrollRef: MutableRefObject<ScrollView | null>;
+	scrollRef?: MutableRefObject<ScrollView | null>;
 };
 
 const SectionFooter = ({ isMobile, scrollRef }: Props) => {

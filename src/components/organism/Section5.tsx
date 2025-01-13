@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
-import React, { useEffect } from "react";
+import { ScrollView, StyleSheet, View } from "react-native";
+import React, { MutableRefObject, useEffect } from "react";
 import { colors } from "@themes/colors";
 import { fontStyle } from "@themes/fonts";
 import { Section5List } from "@components/molecule";
@@ -9,13 +9,15 @@ import Animated, {
 	useSharedValue,
 	withTiming,
 } from "react-native-reanimated";
+import { studioButtonData } from "@utils/constant/page";
 
 type Props = {
 	trigger: boolean;
 	isMobile: boolean;
+	scrollRef: MutableRefObject<ScrollView | null>;
 };
 
-const Section5 = ({ trigger, isMobile }: Props) => {
+const Section5 = ({ trigger, isMobile, scrollRef }: Props) => {
 	const textAnim = useSharedValue(0);
 
 	const titleAnimatedStyle = useAnimatedStyle(() => {
@@ -78,7 +80,14 @@ const Section5 = ({ trigger, isMobile }: Props) => {
 				from, you’ll find the perfect setting to bring your vision to life.
 			</Animated.Text>
 
-			{!isMobile && <Section5List trigger={trigger} />}
+			{!isMobile && (
+				<Section5List
+					trigger={trigger}
+					data={studioButtonData}
+					type="long"
+					scrollRef={scrollRef}
+				/>
+			)}
 		</View>
 	);
 };

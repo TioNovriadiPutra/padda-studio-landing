@@ -2,6 +2,7 @@ const config = {
 	screens: {
 		Home: "/",
 		TC: "/tc",
+		Pricing: "/pricing",
 		Booking: "/booking",
 	},
 };
